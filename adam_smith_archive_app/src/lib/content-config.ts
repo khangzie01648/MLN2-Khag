@@ -1,0 +1,194 @@
+import 'server-only';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { PILLAR_META, type PillarConfig } from './pillar-constants';
+export { type PillarConfig };
+export { PILLAR_META };
+import { ArticleConfig } from './types';
+
+// Define the content directories
+const contentDirectory = path.join(process.cwd(), 'content');
+// Assuming ADAM SMITH_ARCHIVE_FINAL is a sibling of jung_archive_app
+const archivesDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives');
+const archivesVnDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives_VN');
+
+// Helper to map filename to Pillar ID
+function classifyPillar(filename: string, sourceDir: string): string {
+    const f = filename.toLowerCase();
+
+    // 1. BIOGRAPHY & LIFE
+    if (f.startsWith('biography_') || f.includes('biography') || f.includes('life') || f.includes('tieu_su') || f.startsWith('01_')) {
+        return 'biography';
+    }
+
+    // 2. ECONOMICS & WEALTH
+    if (f.includes('economics') || f.includes('wealth') || f.includes('nations') || f.includes('kinh_te') || f.includes('thinh_vuong') || f.startsWith('02_')) {
+        return 'economics';
+    }
+
+    // 3. ETHICS & PHILOSOPHY
+    if (f.includes('ethics') || f.includes('philosophy') || f.includes('sentiments') || f.includes('dao_duc') || f.includes('triet_hoc') || f.startsWith('03_')) {
+        return 'ethics';
+    }
+
+    // 4. LAW & POLITICS
+    if (f.includes('law') || f.includes('politics') || f.includes('jurisprudence') || f.includes('phap_luat') || f.includes('chinh_tri') || f.startsWith('04_')) {
+        return 'law';
+    }
+
+    // 5. RHETORIC & LETTERS
+    if (f.includes('rhetoric') || f.includes('letters') || f.includes('belles') || f.includes('tu_tuong') || f.includes('ngon_ngu') || f.startsWith('05_')) {
+        return 'rhetoric';
+    }
+
+    // Legacy / Fallback mapping
+    if (f.startsWith('essay_')) return 'economics';
+    if (f.startsWith('topic_')) return 'ethics';
+    if (f.startsWith('vn_') || f.startsWith('archive_')) return 'economics';
+
+    return 'economics'; // Default
+}
+
+function getArticlesFromDir(dirPath: string): { pillarId: string; article: ArticleConfig }[] {
+    if (!fs.existsSync(dirPath)) return [];
+
+    // Check if it's a directory or symlink
+    try {
+        const stats = fs.statSync(dirPath);
+        if (!stats.isDirectory()) return [];
+    } catch (e) {
+        return [];
+    }
+
+    const fileNames = fs.readdirSync(dirPath);
+    return fileNames
+        .filter(fileName => fileName.endsWith('.md'))
+        .map(fileName => {
+            const fullPath = path.join(dirPath, fileName);
+            let fileContents = '';
+            try {
+                fileContents = fs.readFileSync(fullPath, 'utf8');
+            } catch (e) {
+                console.error(`Error reading file ${fullPath}`, e);
+                return null;
+            }
+
+            if (!fileContents) return null;
+
+            const { data } = matter(fileContents);
+            const pillarId = classifyPillar(fileName, dirPath);
+            const slug = fileName.replace(/\.md$/, '');
+
+            const result: { pillarId: string; article: ArticleConfig } = {
+                pillarId,
+                article: {
+                    slug: slug,
+                    sourceFile: fileName,
+                    fullPath: fullPath,
+                    title: data.title || slug.replace(/_/g, ' '),
+                    description: data.description || "Tài liệu lưu trữ"
+                }
+            };
+            return result;
+        })
+        .filter((item): item is { pillarId: string; article: ArticleConfig } => item !== null);
+}
+
+export function getPillars(): PillarConfig[] {
+    // 1. Read files from ALL directories
+    const contentArticles = getArticlesFromDir(contentDirectory);
+    const archiveArticles = getArticlesFromDir(archivesDirectory);
+    const archiveVnArticles = getArticlesFromDir(archivesVnDirectory);
+
+    const allArticles = [...contentArticles, ...archiveArticles, ...archiveVnArticles];
+
+    // 2. Group by Pillar
+    const pillars: Record<string, PillarConfig> = {};
+
+    // Initialize pillars structure based on META
+    Object.keys(PILLAR_META).forEach(id => {
+        const meta = PILLAR_META[id];
+        if (meta) {
+            pillars[id] = {
+                ...meta,
+                articles: []
+            };
+        }
+    });
+
+    // Ensure a default pillar exists if articles don't match any META
+    const fallbackId = 'economics'; // Everything else is a "Work"
+    if (!pillars[fallbackId]) {
+        pillars[fallbackId] = {
+            id: fallbackId,
+            name: 'Archives',
+            nameVi: 'Kho Lưu Trữ',
+            description: 'Tài liệu bổ sung',
+            icon: 'archive',
+            color: '#d4af37',
+            articles: []
+        };
+    }
+
+    // Distribute articles
+    allArticles.forEach(({ pillarId, article }) => {
+        if (pillars[pillarId]) {
+            if (!pillars[pillarId].articles) pillars[pillarId].articles = [];
+            pillars[pillarId].articles!.push(article);
+        } else {
+            // Map to fallback
+            if (pillars[fallbackId]) {
+                if (!pillars[fallbackId].articles) pillars[fallbackId].articles = [];
+                pillars[fallbackId].articles!.push(article);
+            }
+        }
+    });
+
+    return Object.values(pillars);
+}
+
+
+export function getPillarById(id: string) {
+    const pillars = getPillars();
+    return pillars.find(p => p.id === id);
+}
+
+export function getArticle(pillarId: string, slug: string) {
+    const pillar = getPillarById(pillarId);
+    if (!pillar) return undefined;
+
+    // We need to know WHERE the file is to read its content in full later, 
+    // but ArticleConfig only stores sourceFile name. 
+    // Ideally update ArticleConfig to store fullPath, but that might break frontend serialization.
+    // For now, checks are done by slug matching.
+    return pillar.articles?.find(a => a.slug === slug);
+}
+
+export function getAllArticleSlugs() {
+    const pillars = getPillars();
+    const slugs: { pillar: string; slug: string }[] = [];
+    pillars.forEach(p => {
+        p.articles?.forEach(a => {
+            slugs.push({ pillar: p.id, slug: a.slug });
+        });
+    });
+    return slugs;
+}
+
+export function getAllArticlesFlat() {
+    const pillars = getPillars();
+    const articles: any[] = [];
+    pillars.forEach(p => {
+        p.articles?.forEach(a => {
+            articles.push({
+                ...a,
+                pillarId: p.id,
+                pillarName: p.nameVi || p.name,
+                pillarColor: p.color
+            });
+        });
+    });
+    return articles;
+}
+

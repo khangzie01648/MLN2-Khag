@@ -1,0 +1,104 @@
+ Volume in drive D is Nguy?n Khang
+ Volume Serial Number is D84B-C450
+
+ Directory of d:\nietzsche-chronicle\Adam_Smith_Archives_VN\scripts
+
+03/08/2026  07:49 PM             1,457 analyze_content.py
+03/06/2026  08:33 AM             2,057 analyze_data_distribution.py
+03/06/2026  08:33 AM             2,011 analyze_distribution_final.py
+03/06/2026  08:33 AM             1,921 analyze_final.py
+03/07/2026  11:10 AM             1,058 analyze_global_junk.py
+03/06/2026  08:33 AM             3,746 analyze_themes.py
+03/06/2026  08:33 AM             2,216 check_duplicates_content.py
+03/11/2026  04:33 PM               596 check_stats.py
+03/07/2026  08:34 AM             3,628 chunk_to_json.py
+03/06/2026  08:33 AM             3,243 cleanup_archive_script.py
+03/09/2026  06:48 PM             2,687 clean_to_json.py
+03/09/2026  08:06 PM             1,939 collate_elite_final.py
+03/06/2026  08:33 AM               858 concat_scratchpads.py
+03/11/2026  11:19 AM               338 count_lines.py
+03/11/2026  11:20 AM               516 count_lines_v2.py
+03/07/2026  08:32 AM               699 count_neurons.py
+03/08/2026  08:06 PM             1,009 count_neurons_final.py
+03/12/2026  11:00 AM             1,427 count_pages_real.py
+03/06/2026  08:33 AM             1,161 debug_encoding.py
+03/06/2026  08:33 AM             1,869 debug_smart.py
+03/10/2026  08:38 AM             1,871 deduplicate_neurons.py
+03/10/2026  08:22 AM             3,303 deduplicate_vn_full.py
+03/06/2026  08:33 AM             5,067 deep_scrape_works.py
+03/05/2026  05:27 PM             1,725 dir_sizes.py
+03/07/2026  08:52 AM             5,010 editor_spider.py
+03/07/2026  01:10 PM             5,429 editor_spider_v2.py
+03/08/2026  08:03 PM             5,007 editor_spider_v3.py
+03/09/2026  08:13 PM             5,301 elite_architect_v5.py
+03/09/2026  07:53 PM             1,760 elite_deep_clean.py
+03/09/2026  07:39 PM             1,503 export_elite.py
+03/09/2026  08:06 PM             2,030 export_elite_v4.py
+03/11/2026  11:41 AM               419 extract_edinburgh_info.py
+03/10/2026  08:30 AM               391 extract_headers.py
+03/06/2026  08:33 AM             1,573 extract_pdf_content.py
+03/11/2026  11:22 AM               531 extract_vn.py
+03/09/2026  08:32 PM             8,291 final_elite_cleaner.py
+03/06/2026  08:33 AM             2,620 find_duplicates.py
+03/11/2026  11:28 AM               323 find_huge.py
+03/06/2026  08:33 AM             2,957 find_internal_duplicates.py
+03/10/2026  08:41 AM               989 fix_age_inaccuracy.py
+01/23/2026  08:47 PM             1,852 fix_encoding_aggressive.py
+03/06/2026  08:33 AM             2,064 fix_encoding_final.py
+03/06/2026  08:33 AM             3,239 fix_encoding_smart.py
+03/06/2026  08:33 AM             2,841 fix_encoding_smart_v2.py
+03/06/2026  08:33 AM             2,870 fix_encoding_smart_v3.py
+03/06/2026  08:33 AM             1,816 fix_encoding_v2.py
+03/09/2026  08:15 PM             5,104 fix_inplace_v5.py
+03/06/2026  08:33 AM             1,179 fix_single.py
+03/06/2026  08:33 AM               773 fix_single_v2.py
+03/06/2026  08:33 AM             2,014 fix_specific.py
+03/09/2026  08:16 PM             4,744 fix_super_inplace.py
+03/06/2026  08:33 AM             1,410 fix_v3_robust.py
+03/06/2026  08:33 AM             2,548 inject_metadata.py
+03/10/2026  08:33 AM               289 list_headers.py
+03/11/2026  11:24 AM               329 list_large.py
+03/09/2026  08:04 PM             4,874 logic_separator_v4.py
+03/10/2026  08:34 AM               359 log_all_headers.py
+03/09/2026  08:21 PM             6,352 master_cleaner_v5.py
+03/10/2026  08:11 AM             2,149 md_to_docx.py
+03/08/2026  08:19 PM             3,326 neuron_merger.py
+03/09/2026  04:49 PM             4,682 neuron_merger_v2.py
+03/06/2026  05:05 PM               625 prepend.py
+03/07/2026  10:46 AM             3,145 purge_junk_nodes.py
+03/10/2026  08:38 AM             3,178 rebalance_neurons.py
+03/06/2026  08:33 AM             3,500 rebrand_project.py
+03/06/2026  08:33 AM             3,250 restructure_archives.py
+03/06/2026  08:33 AM             2,962 scrape_asw.py
+03/06/2026  08:33 AM             2,587 scrape_econlib.py
+03/06/2026  08:33 AM             2,946 scrape_misc.py
+03/06/2026  08:33 AM             2,587 scrape_oll.py
+03/06/2026  08:33 AM             4,112 spider_asw.py
+03/06/2026  08:33 AM             4,414 spider_concepts_smith.py
+03/06/2026  08:33 AM             4,088 spider_econlib_smith.py
+03/06/2026  08:33 AM             3,806 spider_oll_smith.py
+03/10/2026  08:34 AM             3,429 split_biography.py
+03/06/2026  08:33 AM             2,584 standardize_filenames.py
+03/06/2026  08:33 AM             2,271 standardize_headers.py
+03/06/2026  09:37 PM               261 status.py
+03/09/2026  08:00 PM             3,890 super_elite_cleaner.py
+03/09/2026  07:04 PM             6,427 super_merger.py
+03/09/2026  07:26 PM             6,856 super_merger_v3.py
+03/06/2026  08:33 AM             1,140 targeted_sizes.py
+03/10/2026  07:41 AM             4,034 temp_purify.py
+03/07/2026  10:54 AM             2,250 test_dedup.py
+03/06/2026  08:33 AM             1,267 test_fix_encoding.py
+03/11/2026  10:54 AM             4,483 tmp_clean.py
+03/06/2026  05:23 PM             5,967 translate_full_spider.py
+03/06/2026  07:02 PM             4,631 translate_worker.py
+03/06/2026  08:33 AM             1,542 verify_branding.py
+              89 File(s)        237,582 bytes
+
+ Directory of d:\nietzsche-chronicle\adam_smith_archive_app\node_modules\flatted\python
+
+01/17/2026  10:50 AM             3,860 flatted.py
+               1 File(s)          3,860 bytes
+
+     Total Files Listed:
+              90 File(s)        241,442 bytes
+               0 Dir(s)  759,024,123,904 bytes free

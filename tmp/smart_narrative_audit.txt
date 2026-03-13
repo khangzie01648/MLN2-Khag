@@ -1,0 +1,358 @@
+==============================================================================
+🔍 SIÊU KIỂM TOÁN NỘI DUNG NARRATIVE (SMART AUDIT)
+Mục tiêu: Tập trung kiểm tra 100% tính duy nhất của PHẦN KỂ CHUYỆN (NARRATIVE)
+Loại trừ: Header/Tutorial (vốn lặp lại có chủ đích)
+==============================================================================
+
+--- FILE: 01_Khoi_Nguon_Tho_Au_va_Hoc_Nghe_1723_1737.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 02_Hanh_Trinh_Tai_Oxford_va_Su_Co_Doc_Tri_Tue_1737_1746.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 57.1%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 03_Cuoc_Cach_Mang_Tu_Tuong_tai_Edinburgh_1746_1751.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 16.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 04_Thanh_Tuu_Ruc_Ro_tai_Dai_hoc_Glasgow_1751_1764.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 50.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 05_Chuyen_Du_Hanh_Chau_Au_va_Su_Mo_Mang_Tam_Nhin_1764_1766.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 06_Thap_Ky_An_Tu_Kirkcaldy_Kien_Tao_Quoc_Phu_Luan_1766_1776.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 07_Cuoi_Doi_Di_San_Vinh_Cuu_tai_Edinburgh_1778_1790.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 83.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 01_Tong_Quan_Wealth_Of_Nations_1776.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 57.1%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 02_Phan_Cong_Lao_Dong_Gia_Tri_1776.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 03_Ban_Chat_Tich_Luy_Von_1776.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 16.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 04_Tien_Trinh_Thinh_Vuong_Lich_Su_1776.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 66.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 05_He_Thong_Kinh_Te_Chinh_Tri_1776.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 16.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 06_Ngan_Sach_Chinh_Phu_Giao_Duc_1776.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 50.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 07_Di_San_Va_Tranh_Luan_Hien_Dai.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 66.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 01_Su_Dong_Cam_Tuong_Ho_1759.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 71.4%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 02_Nguoi_Quan_Sat_Khach_Quan.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 71.4%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 03_Cong_Ly_Nhan_Ai.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 04_Dong_Luc_Giau_Co_Phu_Phiem.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 05_Phe_Phan_Con_Nguoi_He_Thong.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 06_Van_De_Adam_Smith.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 50.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 07_Di_San_Triet_Hoc_Hanh_Phuc.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 50.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 01_Nguon_Goc_Cua_Luat_Phap.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 71.4%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 02_Quyen_So_Huu_Tien_Hoa_Xa_Hoi.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 85.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 03_Luat_Gia_Dinh_Quyen_Ca_Nhan.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 16.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 04_Chinh_Tri_Hoc_Ban_Chat_Chinh_Quyen.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 05_Nghia_Vu_Trach_Nhiem_Dan_Su.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 06_Luat_Phap_Quoc_Te_Chien_Tranh.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 50.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 07_Quan_Tri_Cong_An_Ninh.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 66.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 01_Thien_Van_Hoc_Tri_To_Mo.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 71.4%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 02_Tu_Tu_Hoc_Nghe_Thuat_Ngon_Tu.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 28.6%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 03_He_Thong_Logic_Sieu_Hinh_Hoc_Co_Dai.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 16.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 04_Ban_Chat_Nghe_Thuat_Mo_Phong.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 0.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 05_Cac_Giac_Quan_Nhan_Thuc_The_Gioi.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 06_Su_Phat_Trien_Cua_Ngon_Ngu.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 07_Triet_Hoc_Khai_Sang_Tam_Nhin_Khoa_Hoc.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 50.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 01_Nguon_Goc_Luong_Tam_Kha_Nang_Tu_Phan_Chieu.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 71.4%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 02_Quy_Tac_Tong_Quat_Ve_Dao_Duc.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 28.6%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 03_He_Thong_Triet_Hoc_Dao_Duc_Co_Dien_va_Hien_Dai.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 16.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 04_Moi_Quan_He_Giua_Dao_Duc_va_Ton_Giao.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 05_Anh_Huong_Cua_Tap_Quan_va_Thanh_Mau.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 06_Su_Hoan_Thien_Cua_Nhan_Cach_va_Duc_Hanh.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 07_Dao_Duc_Trong_Xa_Hoi_Thuong_Mai_Hien_Dai.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 01_Ly_Thuyet_Ve_Thanh_Am_va_Am_Nhac.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 71.4%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 02_Hoi_Hoa_Dieu_Khac_va_Su_Mo_Phong.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 28.6%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 03_Khieu_Vu_va_Nghe_Thuat_Bieu_Dien.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 04_Su_Ket_Noi_Giua_Tham_My_va_Dao_Duc.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 0.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 05_Di_San_Hoc_Thuat_Cua_Adam_Smith.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 66.7%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 06_Tam_Nhin_Toan_Cau_va_Tuong_Lai_Nhan_Ban.md ---
+   - Trạng thái: ❌ CẦN ĐIỀU CHỈNH
+   - Độ khớp chủ đề (Legit): 33.3%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+--- FILE: 07_Loi_Ket_Cho_Adam_Smith_Archives.md ---
+   - Trạng thái: ✅ HOÀN HẢO
+   - Độ khớp chủ đề (Legit): 100.0%
+   - Bối cảnh lịch sử: Đúng
+   - Trùng lặp nội bộ (Narrative): 0
+   - Trùng lặp chéo (Narrative): 0
+
+
+================================================================================
+📊 TỔNG KẾT KIỂM TOÁN NARRATIVE TOÀN CỰC
+- Tổng số file: 49
+- Tổng đoạn văn Narrative độc nhất: 329
+- Tổng vi phạm Trùng lặp chéo: 0
+- Tổng vi phạm Trùng lặp nội bộ: 0
+Hệ thống đạt chuẩn 'Absolute Maximum' khi Trùng lặp = 0 và Legit = 100%.
+================================================================================

@@ -1,0 +1,474 @@
+/* --- CẤU HÌNH GỐC (Theme Variables) --- */
+:root {
+    --bg-deep-space: #020617;
+    /* Màu nền gốc của project */
+    --meteor-head: #ffffff;
+    --meteor-tail-start: rgba(255, 255, 255, 1);
+    --meteor-tail-mid: rgba(56, 189, 248, 0.8);
+    --meteor-tail-end: rgba(168, 85, 247, 0.4);
+}
+
+/* --- WRAPPER AN TOÀN (Giữ cho trang web không bị vỡ) --- */
+.meteorContainerFixed {
+    position: fixed;
+    /* Hoặc 'absolute' tùy nhu cầu */
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-deep-space);
+    /* BẮT BUỘC PHẢI CÓ */
+    overflow: hidden;
+    /* Cực kỳ quan trọng để cắt bỏ phần thừa */
+    z-index: -1;
+    /* Đẩy xuống dưới cùng làm nền */
+    perspective: 1000px;
+    /* Tạo chiều sâu 3D */
+}
+
+/* --- KHỐI SAO BĂNG (NGHIÊNG VÀ TRÀN VIỀN) --- */
+.shootingStars {
+    position: absolute;
+    inset: -40%;
+    width: 180%;
+    height: 180%;
+    transform: rotateZ(-40deg);
+    pointer-events: none;
+}
+
+/* --- HẠT SAO CƠ BẢN --- */
+.shootingStars span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    background: transparent;
+    opacity: 0;
+    transform: translateX(0) translateZ(0);
+    /* Kích hoạt tăng tốc phần cứng */
+    animation: meteorQuantumFlight 4s linear infinite;
+    /* Fallback duration */
+    animation-delay: 0s;
+    /* Fallback delay */
+    will-change: transform, opacity;
+}
+
+/* --- ĐUÔI SAO (Gradient Plasma) --- */
+.shootingStars span::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: var(--tail, 400px);
+    height: var(--thickness, 1px);
+    background: linear-gradient(to left,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.1) 10%,
+            var(--meteor-tail-end) 50%,
+            var(--meteor-tail-mid) 80%,
+            var(--meteor-tail-start) 100%);
+    border-radius: 200% 0 0 200%;
+
+    /* Hiệu ứng Glow chuẩn */
+    filter: drop-shadow(0 0 5px var(--meteor-tail-mid));
+    transition: background 0.5s, filter 0.5s;
+}
+
+/* --- ĐẦU SAO (Hạt nhân sáng lóa) --- */
+.shootingStars span::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--head-size, 3px);
+    height: var(--head-size, 3px);
+    background: var(--meteor-head);
+    border-radius: 50%;
+
+    /* Hiệu ứng hào quang nhiều lớp (Multi-layer Bloom) */
+    box-shadow:
+        0 0 2px 1px var(--meteor-head),
+        0 0 8px 2px var(--meteor-tail-mid),
+        0 0 20px 4px var(--meteor-tail-end);
+
+    z-index: 10;
+    transition: background 0.5s, box-shadow 0.5s;
+}
+
+/* --- ANIMATION BAY --- */
+@keyframes meteorQuantumFlight {
+    0% {
+        opacity: 0;
+        transform: translateX(400px) scale(0.1);
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+    /* Sáng lên khi vào khung hình */
+    70% {
+        opacity: 1;
+        transform: translateX(-1000px) scale(1);
+    }
+
+    /* Bay qua */
+    85% {
+        opacity: 0;
+        transform: translateX(-1300px) scale(0.9);
+    }
+
+    /* Tắt dần */
+    100% {
+        opacity: 0;
+        transform: translateX(-2000px) scale(0.1);
+    }
+}
+
+/* --- CẤU HÌNH VỊ TRÍ 40 SAO (ĐÃ KHỚP 100% VỚI FILE GỐC) --- */
+/* Note: nth-child selectors inside CSS modules need :global if targeting simple tags without class, 
+   but since these spans are children of .shootingStars, we can target them. */
+.shootingStars span:nth-child(1) {
+    top: -10%;
+    left: 30%;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    --tail: 700px;
+    --head-size: 4px;
+    --thickness: 2px;
+}
+
+.shootingStars span:nth-child(2) {
+    top: 30%;
+    left: 60%;
+    animation-duration: 3.5s;
+    animation-delay: 7s;
+    --tail: 600px;
+    --head-size: 3px;
+    --thickness: 2px;
+}
+
+.shootingStars span:nth-child(3) {
+    top: 60%;
+    left: 90%;
+    animation-duration: 4.2s;
+    animation-delay: 0.5s;
+    --tail: 800px;
+    --head-size: 5px;
+    --thickness: 3px;
+}
+
+.shootingStars span:nth-child(4) {
+    top: 10%;
+    left: 80%;
+    animation-duration: 3.8s;
+    animation-delay: 12s;
+    --tail: 650px;
+    --head-size: 4px;
+    --thickness: 2px;
+}
+
+.shootingStars span:nth-child(5) {
+    top: 50%;
+    left: -20%;
+    animation-duration: 4.5s;
+    animation-delay: 5s;
+    --tail: 550px;
+    --head-size: 3px;
+    --thickness: 2px;
+}
+
+/* LỚP 2: TẦM TRUNG (Mid-field) -> Đa số là lớp này */
+.shootingStars span:nth-child(n+6):nth-child(-n+25) {
+    --head-size: 2px;
+    --thickness: 1px;
+}
+
+.shootingStars span:nth-child(6) {
+    top: 0%;
+    left: 10%;
+    animation-duration: 6s;
+    animation-delay: 1s;
+    --tail: 400px;
+}
+
+.shootingStars span:nth-child(7) {
+    top: 20%;
+    left: 40%;
+    animation-duration: 7s;
+    animation-delay: 2.5s;
+    --tail: 350px;
+}
+
+.shootingStars span:nth-child(8) {
+    top: 40%;
+    left: 70%;
+    animation-duration: 5.5s;
+    animation-delay: 4.8s;
+    --tail: 450px;
+}
+
+.shootingStars span:nth-child(9) {
+    top: 60%;
+    left: 100%;
+    animation-duration: 6.8s;
+    animation-delay: 6s;
+    --tail: 300px;
+}
+
+.shootingStars span:nth-child(10) {
+    top: 80%;
+    left: 30%;
+    animation-duration: 6.2s;
+    animation-delay: 0.2s;
+    --tail: 380px;
+}
+
+.shootingStars span:nth-child(11) {
+    top: 10%;
+    left: 50%;
+    animation-duration: 5.8s;
+    animation-delay: 3s;
+    --tail: 420px;
+}
+
+.shootingStars span:nth-child(12) {
+    top: 30%;
+    left: 80%;
+    animation-duration: 7.2s;
+    animation-delay: 8s;
+    --tail: 360px;
+}
+
+.shootingStars span:nth-child(13) {
+    top: 50%;
+    left: 10%;
+    animation-duration: 6.5s;
+    animation-delay: 1.5s;
+    --tail: 400px;
+}
+
+.shootingStars span:nth-child(14) {
+    top: 70%;
+    left: 40%;
+    animation-duration: 5.9s;
+    animation-delay: 5.5s;
+    --tail: 330px;
+}
+
+.shootingStars span:nth-child(15) {
+    top: 90%;
+    left: 70%;
+    animation-duration: 6.9s;
+    animation-delay: 7.2s;
+    --tail: 390px;
+}
+
+.shootingStars span:nth-child(16) {
+    top: 5%;
+    left: 95%;
+    animation-duration: 6.1s;
+    animation-delay: 2.2s;
+    --tail: 370px;
+}
+
+.shootingStars span:nth-child(17) {
+    top: 25%;
+    left: 25%;
+    animation-duration: 7.5s;
+    animation-delay: 4.1s;
+    --tail: 340px;
+}
+
+.shootingStars span:nth-child(18) {
+    top: 45%;
+    left: 55%;
+    animation-duration: 5.7s;
+    animation-delay: 0.8s;
+    --tail: 410px;
+}
+
+.shootingStars span:nth-child(19) {
+    top: 65%;
+    left: 85%;
+    animation-duration: 6.4s;
+    animation-delay: 9s;
+    --tail: 350px;
+}
+
+.shootingStars span:nth-child(20) {
+    top: 85%;
+    left: 15%;
+    animation-duration: 7.1s;
+    animation-delay: 3.5s;
+    --tail: 380px;
+}
+
+.shootingStars span:nth-child(21) {
+    top: 15%;
+    left: 5%;
+    animation-duration: 6.3s;
+    animation-delay: 6.5s;
+    --tail: 430px;
+}
+
+.shootingStars span:nth-child(22) {
+    top: 35%;
+    left: 35%;
+    animation-duration: 5.6s;
+    animation-delay: 1.8s;
+    --tail: 360px;
+}
+
+.shootingStars span:nth-child(23) {
+    top: 55%;
+    left: 65%;
+    animation-duration: 7.8s;
+    animation-delay: 4.5s;
+    --tail: 320px;
+}
+
+.shootingStars span:nth-child(24) {
+    top: 75%;
+    left: 95%;
+    animation-duration: 6.7s;
+    animation-delay: 2.8s;
+    --tail: 390px;
+}
+
+.shootingStars span:nth-child(25) {
+    top: 95%;
+    left: 25%;
+    animation-duration: 5.4s;
+    animation-delay: 7.8s;
+    --tail: 440px;
+}
+
+/* LỚP 3: XA VÀ MỜ (Background Atmosphere) */
+.shootingStars span:nth-child(n+26) {
+    --head-size: 1px;
+    --thickness: 0.5px;
+    opacity: 0.4;
+}
+
+.shootingStars span:nth-child(26) {
+    top: 0%;
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+    --tail: 200px;
+}
+
+.shootingStars span:nth-child(27) {
+    top: 20%;
+    left: 50%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+    --tail: 250px;
+}
+
+.shootingStars span:nth-child(28) {
+    top: 40%;
+    left: 80%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+    --tail: 220px;
+}
+
+.shootingStars span:nth-child(29) {
+    top: 60%;
+    left: 10%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+    --tail: 180px;
+}
+
+.shootingStars span:nth-child(30) {
+    top: 80%;
+    left: 40%;
+    animation-duration: 14s;
+    animation-delay: 8s;
+    --tail: 240px;
+}
+
+.shootingStars span:nth-child(31) {
+    top: 10%;
+    left: 70%;
+    animation-duration: 12.5s;
+    animation-delay: 1s;
+    --tail: 210px;
+}
+
+.shootingStars span:nth-child(32) {
+    top: 30%;
+    left: 100%;
+    animation-duration: 11.5s;
+    animation-delay: 5s;
+    --tail: 260px;
+}
+
+.shootingStars span:nth-child(33) {
+    top: 50%;
+    left: 30%;
+    animation-duration: 13.5s;
+    animation-delay: 9s;
+    --tail: 190px;
+}
+
+.shootingStars span:nth-child(34) {
+    top: 70%;
+    left: 60%;
+    animation-duration: 10.5s;
+    animation-delay: 4s;
+    --tail: 230px;
+}
+
+.shootingStars span:nth-child(35) {
+    top: 90%;
+    left: 90%;
+    animation-duration: 14.5s;
+    animation-delay: 7s;
+    --tail: 200px;
+}
+
+.shootingStars span:nth-child(36) {
+    top: 5%;
+    left: 15%;
+    animation-duration: 11.2s;
+    animation-delay: 2.5s;
+    --tail: 250px;
+}
+
+.shootingStars span:nth-child(37) {
+    top: 25%;
+    left: 45%;
+    animation-duration: 12.8s;
+    animation-delay: 6.5s;
+    --tail: 220px;
+}
+
+.shootingStars span:nth-child(38) {
+    top: 45%;
+    left: 75%;
+    animation-duration: 10.8s;
+    animation-delay: 1.5s;
+    --tail: 180px;
+}
+
+.shootingStars span:nth-child(39) {
+    top: 65%;
+    left: 5%;
+    animation-duration: 13.8s;
+    animation-delay: 5.5s;
+    --tail: 240px;
+}
+
+.shootingStars span:nth-child(40) {
+    top: 85%;
+    left: 35%;
+    animation-duration: 11.8s;
+    animation-delay: 8.5s;
+    --tail: 210px;
+}

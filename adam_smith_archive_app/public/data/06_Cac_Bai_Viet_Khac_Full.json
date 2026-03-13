@@ -1,0 +1,65 @@
+{
+  "lobe_id": "06",
+  "name": "Các bài viết khác",
+  "nodes": [
+    {
+      "node_id": "Kho_tàng_Tác_phẩm_và_Thư_viện_Adam_Smith",
+      "name": "Kho tàng Tác phẩm và Thư viện Adam Smith",
+      "cells": [
+        {
+          "cell_id": "main_content",
+          "name": "Nội dung chi tiết",
+          "paragraphs": [
+            "Việc tiêu hủy các bản thảo",
+            "Một chi tiết quan trọng trong cuộc đời Smith là một tuần trước khi mất, ông đã yêu cầu hai người bạn thân (Joseph Black và James Hutton) đốt cháy **16 tập bản thảo** chưa hoàn thiện của mình.",
+            "- **Sự cầu toàn**: Smith là một người cực kỳ khắt khe với bản thân. Ông không muốn những tác phẩm chưa đạt đến độ chín muồi được truyền lại cho hậu thế.",
+            "- **Những gì đã mất**: Thế giới có lẽ đã mất đi những công trình đồ sộ về Lịch sử Pháp luật và Lịch sử Văn chương mà ông đã dành hàng chục năm nghiên cứu.",
+            "---"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": "Khoa_học,_Thiên_văn_và_Nghệ_thuật",
+      "name": "Khoa học, Thiên văn và Nghệ thuật",
+      "cells": [
+        {
+          "cell_id": "main_content",
+          "name": "Nội dung chi tiết",
+          "paragraphs": [
+            "Các Giác quan và Tri thức luận",
+            "Smith cũng viết về cách chúng ta nhận thức thế giới thông qua các giác quan, đặc biệt là sự tương tác giữa thị giác và xúc giác để hình thành khái niệm về không gian và thực tại.",
+            "---",
+            "Lịch sử Thiên văn học (History of Astronomy)",
+            "Đây là tác phẩm mà Smith tâm đắc nhất trong số các tiểu luận rời rạc của mình.",
+            "- **Động cơ của Khoa học**: Smith cho rằng khoa học không bắt đầu từ sự tò mò thuần túy, mà từ sự **Ngạc nhiên (Surprise)** và **Kinh ngạc (Wonder)** khi đối mặt với những hiện tượng lạ. Con người cố gắng giải thích để đưa tâm trí trở lại trạng thái **Thanh thản (Tranquility)**.",
+            "- **Hệ thống như những Cỗ máy**: Ông coi các lý thuyết khoa học (như hệ thống của Newton) là những \"cỗ máy tưởng tượng\" giúp kết nối các hiện tượng tự nhiên lại với nhau một cách hợp lý.",
+            "Về các Nghệ thuật Mô phỏng (The Imitative Arts)",
+            "Smith thảo luận về hội họa, điêu khắc, âm nhạc và vũ đạo:",
+            "- **Sự khác biệt**: Ông quan tâm đến việc tại sao chúng ta lại thấy thú vị khi xem một bức tranh mô phỏng đồ vật thật, nhưng lại không thấy thú vị tương tự với các hình thức mô phỏng khác.",
+            "- **Vai trò của sự khéo léo**: Cảm giác về vẻ đẹp thường đi kèm với sự ngưỡng mộ dành cho kỹ năng và sự khéo léo của người nghệ sĩ."
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": "Kien_thuc_bo_tro",
+      "name": "Kiến thức bổ trợ: Cac Bai Viet Khac",
+      "cells": [
+        {
+          "cell_id": "main_content",
+          "name": "Nội dung chi tiết",
+          "paragraphs": [
+            "Di sản của Adam Smith",
+            "Ngày nay, Adam Smith không chỉ được nhớ đến như \"Cha đẻ của Kinh tế học\" mà còn là:",
+            "- **Nhà xã hội học đầu tiên**: Với những quan sát sắc sảo về hành vi con người trong đám đông.",
+            "- **Triết gia của tự do**: Người đã chỉ ra rằng tự do cá nhân và trật tự xã hội có thể song hành thông qua các cơ chế tự phát.",
+            "- **Biểu tượng của sự khai phóng**: Tư tưởng của ông vẫn là kim chỉ nam cho các cuộc thảo luận về thị trường, đạo đức và vai trò của nhà nước trong thế giới hiện đại.",
+            "---",
+            "*Ghi chú: Archive này khép lại hành trình tìm hiểu về Adam Smith - một trí tuệ khổng lồ của thời đại Khai sáng, người đã dạy chúng ta rằng sự thịnh vượng bền vững nhất luôn phải bén rễ từ lòng đồng cảm và công lý.*"
+          ]
+        }
+      ]
+    }
+  ]
+}
