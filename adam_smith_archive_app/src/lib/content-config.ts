@@ -13,33 +13,43 @@ const contentDirectory = path.join(process.cwd(), 'content');
 const archivesDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives');
 const archivesVnDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives_VN');
 
-// Helper to map filename to Pillar ID
+// Helper to map filename or directory to Pillar ID
 function classifyPillar(filename: string, sourceDir: string): string {
     const f = filename.toLowerCase();
+    const d = sourceDir.toLowerCase();
+
+    // 0. PRIORITY: Check directory name (for _Neurons folders)
+    if (d.includes('01_biography')) return 'biography';
+    if (d.includes('02_kinh_te')) return 'economics';
+    if (d.includes('03_dao_duc_triet_hoc')) return 'ethics';
+    if (d.includes('04_phap_ly')) return 'politics';
+    if (d.includes('05_khoa_hoc')) return 'literature';
+    if (d.includes('06_dao_duc_he_thong')) return 'systems';
+    if (d.includes('07_nghe_thuat')) return 'legacy';
 
     // 1. BIOGRAPHY & LIFE
-    if (f.startsWith('biography_') || f.includes('biography') || f.includes('life') || f.includes('tieu_su') || f.startsWith('01_')) {
+    if (f.startsWith('biography_') || f.includes('biography') || f.includes('life') || f.includes('tieu_su')) {
         return 'biography';
     }
 
     // 2. ECONOMICS & WEALTH
-    if (f.includes('economics') || f.includes('wealth') || f.includes('nations') || f.includes('kinh_te') || f.includes('thinh_vuong') || f.startsWith('02_')) {
+    if (f.includes('economics') || f.includes('wealth') || f.includes('nations') || f.includes('kinh_te') || f.includes('thinh_vuong')) {
         return 'economics';
     }
 
     // 3. ETHICS & PHILOSOPHY
-    if (f.includes('ethics') || f.includes('philosophy') || f.includes('sentiments') || f.includes('dao_duc') || f.includes('triet_hoc') || f.startsWith('03_')) {
+    if (f.includes('ethics') || f.includes('philosophy') || f.includes('sentiments') || f.includes('dao_duc') || f.includes('triet_hoc')) {
         return 'ethics';
     }
 
     // 4. LAW & POLITICS
-    if (f.includes('law') || f.includes('politics') || f.includes('jurisprudence') || f.includes('phap_luat') || f.includes('chinh_tri') || f.startsWith('04_')) {
-        return 'law';
+    if (f.includes('law') || f.includes('politics') || f.includes('jurisprudence') || f.includes('phap_luat') || f.includes('chinh_tri')) {
+        return 'politics';
     }
 
     // 5. RHETORIC & LETTERS
-    if (f.includes('rhetoric') || f.includes('letters') || f.includes('belles') || f.includes('tu_tuong') || f.includes('ngon_ngu') || f.startsWith('05_')) {
-        return 'rhetoric';
+    if (f.includes('rhetoric') || f.includes('letters') || f.includes('belles') || f.includes('tu_tuong') || f.includes('ngon_ngu')) {
+        return 'literature';
     }
 
     // Legacy / Fallback mapping
@@ -61,9 +71,9 @@ function getArticlesFromDir(dirPath: string): { pillarId: string; article: Artic
         return [];
     }
 
-    const fileNames = fs.readdirSync(dirPath);
+    const fileNames = fs.readdirSync(dirPath).sort();
     return fileNames
-        .filter(fileName => fileName.endsWith('.md'))
+        .filter(fileName => fileName.endsWith('.md') && !fileName.includes('Prompts'))
         .map(fileName => {
             const fullPath = path.join(dirPath, fileName);
             let fileContents = '';
@@ -96,12 +106,10 @@ function getArticlesFromDir(dirPath: string): { pillarId: string; article: Artic
 }
 
 export function getPillars(): PillarConfig[] {
-    // 1. Read files from ALL directories
+    // 1. Read files from root directories
     const contentArticles = getArticlesFromDir(contentDirectory);
     const archiveArticles = getArticlesFromDir(archivesDirectory);
     const archiveVnArticles = getArticlesFromDir(archivesVnDirectory);
-
-    const allArticles = [...contentArticles, ...archiveArticles, ...archiveVnArticles];
 
     // 2. Group by Pillar
     const pillars: Record<string, PillarConfig> = {};
@@ -114,8 +122,19 @@ export function getPillars(): PillarConfig[] {
                 ...meta,
                 articles: []
             };
+
+            // NEW: Scan specific subdirectories for each pillar if subtitle (folder name) is provided
+            if (meta.subtitle) {
+                const subDirPath = path.join(archivesVnDirectory, meta.subtitle);
+                const neuronArticles = getArticlesFromDir(subDirPath);
+                neuronArticles.forEach(({ article }) => {
+                    pillars[id].articles!.push(article);
+                });
+            }
         }
     });
+
+    const allArticles = [...contentArticles, ...archiveArticles, ...archiveVnArticles];
 
     // Ensure a default pillar exists if articles don't match any META
     const fallbackId = 'economics'; // Everything else is a "Work"
@@ -131,21 +150,26 @@ export function getPillars(): PillarConfig[] {
         };
     }
 
-    // Distribute articles
+    // Distribute root articles to pillars
     allArticles.forEach(({ pillarId, article }) => {
         if (pillars[pillarId]) {
-            if (!pillars[pillarId].articles) pillars[pillarId].articles = [];
-            pillars[pillarId].articles!.push(article);
-        } else {
-            // Map to fallback
-            if (pillars[fallbackId]) {
-                if (!pillars[fallbackId].articles) pillars[fallbackId].articles = [];
-                pillars[fallbackId].articles!.push(article);
+            // Avoid duplicates if already added from subDir
+            const exists = pillars[pillarId].articles?.some(a => a.slug === article.slug);
+            if (!exists) {
+                pillars[pillarId].articles!.push(article);
             }
         }
     });
 
-    return Object.values(pillars);
+    // FINAL STEP: Sort all articles in each pillar chronologically by filename (01_ to 07_)
+    const result = Object.values(pillars);
+    result.forEach(p => {
+        if (p.articles) {
+            p.articles.sort((a, b) => a.sourceFile.localeCompare(b.sourceFile));
+        }
+    });
+
+    return result;
 }
 
 

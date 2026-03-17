@@ -40,15 +40,30 @@ const ConvergenceLetter = ({ char, index, isHovered }: any) => {
 };
 
 export default function Home() {
+   const [mounted, setMounted] = useState(false);
    const [isHovered, setIsHovered] = useState(false);
    const containerRef = useRef<HTMLDivElement>(null);
    const router = useRouter();
    const [isTransitioning, setIsTransitioning] = useState(false);
    const [showVideo, setShowVideo] = useState(false);
 
+   // --- FIXED HYPER-LOGIC: MAGNETIC TARGETING SYSTEM ---
+   const targetX = useMotionValue(0);
+   const targetY = useMotionValue(0);
+
+   const coreX = useSpring(targetX, { stiffness: 150, damping: 25 });
+   const coreY = useSpring(targetY, { stiffness: 150, damping: 25 });
+
+   useEffect(() => {
+      setMounted(true);
+   }, []);
+
    const handleInitialize = (e: React.MouseEvent) => {
       e.preventDefault();
       setIsTransitioning(true);
+      
+      // PREFETCH NEXT PAGE TO KILL LAG
+      router.prefetch('/select');
       
       // Give the browser 100ms to fade out the 3D/UI before launching the video
       setTimeout(() => {
@@ -59,13 +74,6 @@ export default function Home() {
    const handleVideoEnd = () => {
       router.push('/select');
    };
-
-   // --- FIXED HYPER-LOGIC: MAGNETIC TARGETING SYSTEM ---
-   const targetX = useMotionValue(0);
-   const targetY = useMotionValue(0);
-
-   const coreX = useSpring(targetX, { stiffness: 150, damping: 25 });
-   const coreY = useSpring(targetY, { stiffness: 150, damping: 25 });
 
    const handleMouseMove = (e: React.MouseEvent) => {
       if (!isHovered || !containerRef.current) return;
@@ -86,11 +94,16 @@ export default function Home() {
 
    const letters = "INITIALIZE".split("");
 
-   return (
-      <div className="relative w-screen h-screen bg-[#020202] text-white overflow-hidden font-montserrat select-none antialiased selection:bg-[#daa520] selection:text-[#020202]">
+   if (!mounted) return null;
 
-         {/* 1. HIDDEN PRELOADER */}
-         <video preload="auto" className="hidden">
+   return (
+      <div 
+         suppressHydrationWarning 
+         className="relative w-screen h-screen bg-[#020202] text-white overflow-hidden font-montserrat select-none antialiased selection:bg-[#daa520] selection:text-[#020202]"
+      >
+
+         {/* 1. HIDDEN PRELOADER - MOVED & STYLED TO AVOID EXTENSIONS */}
+         <video preload="auto" style={{ display: 'none', visibility: 'hidden', position: 'absolute', pointerEvents: 'none' }}>
             <source src="/transition.mp4" type="video/mp4" />
          </video>
 

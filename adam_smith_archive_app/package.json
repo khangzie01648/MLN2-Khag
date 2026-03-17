@@ -9,11 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@mediapipe/camera_utils": "^0.3.1675466862",
+    "@mediapipe/hands": "^0.4.1675469240",
     "@react-spring/three": "^10.0.3",
     "@react-three/csg": "^4.0.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@react-three/postprocessing": "^3.0.4",
+    "@tweenjs/tween.js": "^25.0.0",
     "@types/three": "^0.182.0",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.35.0",

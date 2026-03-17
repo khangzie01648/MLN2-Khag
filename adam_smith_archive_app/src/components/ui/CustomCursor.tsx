@@ -4,7 +4,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
-  
+
   // Use MotionValues to avoid React re-renders on every move
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -13,7 +13,7 @@ export default function CustomCursor() {
   const springConfig = { damping: 30, stiffness: 250, mass: 0.5 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
-  
+
   const innerSpringConfig = { damping: 40, stiffness: 400, mass: 0.1 };
   const innerX = useSpring(mouseX, innerSpringConfig);
   const innerY = useSpring(mouseY, innerSpringConfig);
