@@ -29,20 +29,20 @@ export default async function ReadingPage({ params }: ReadingPageProps) {
     // Split by the page markers "#### Trang X: Title"
     const pageRegex = /#### Trang (\d+): (.*)/g;
     const pageMarkers = Array.from(content.matchAll(pageRegex));
-    
+
     const pages = await Promise.all(pageMarkers.map(async (match, index) => {
         const pageId = parseInt(match[1]);
         const title = match[2].trim();
-        
+
         // Find text between this marker and the next
         const startIdx = match.index! + match[0].length;
         const nextMatch = pageMarkers[index + 1];
-        const rawContent = nextMatch 
-            ? content.substring(startIdx, nextMatch.index) 
+        const rawContent = nextMatch
+            ? content.substring(startIdx, nextMatch.index)
             : content.substring(startIdx);
-            
+
         const processed = await remark().use(html).process(rawContent);
-        
+
         return {
             id: pageId,
             title,
@@ -71,7 +71,7 @@ export default async function ReadingPage({ params }: ReadingPageProps) {
 
     return (
         <div className="fixed inset-0 w-full h-screen overflow-hidden bg-black">
-            <ArchiveNeuronViewer pages={pages} modelPath={modelPath} />
+            <ArchiveNeuronViewer pages={pages} modelPath={modelPath} pillarId={pillarId} />
         </div>
     );
 }

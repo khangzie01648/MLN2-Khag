@@ -12,6 +12,8 @@ const contentDirectory = path.join(process.cwd(), 'content');
 // Assuming ADAM SMITH_ARCHIVE_FINAL is a sibling of jung_archive_app
 const archivesDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives');
 const archivesVnDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives_VN');
+// Root-level Neurons folders (the actual folders containing .md content)
+const rootNeuronsDirectory = path.resolve(process.cwd(), '..');
 
 // Helper to map filename or directory to Pillar ID
 function classifyPillar(filename: string, sourceDir: string): string {
@@ -123,13 +125,27 @@ export function getPillars(): PillarConfig[] {
                 articles: []
             };
 
-            // NEW: Scan specific subdirectories for each pillar if subtitle (folder name) is provided
+            // Scan specific subdirectories for each pillar
             if (meta.subtitle) {
+                // 1. Scan in Adam_Smith_Archives_VN
                 const subDirPath = path.join(archivesVnDirectory, meta.subtitle);
                 const neuronArticles = getArticlesFromDir(subDirPath);
                 neuronArticles.forEach(({ article }) => {
                     pillars[id].articles!.push(article);
                 });
+
+                // 2. ALSO scan root-level Neurons folders (e.g., d:\nietzsche-chronicle\02_Kinh_Te_Thinh_Vuong_Neurons)
+                const rootSubDirPath = path.join(rootNeuronsDirectory, meta.subtitle);
+                if (rootSubDirPath !== subDirPath) {
+                    const rootNeuronArticles = getArticlesFromDir(rootSubDirPath);
+                    rootNeuronArticles.forEach(({ article }) => {
+                        // Avoid duplicates
+                        const exists = pillars[id].articles?.some(a => a.slug === article.slug);
+                        if (!exists) {
+                            pillars[id].articles!.push(article);
+                        }
+                    });
+                }
             }
         }
     });

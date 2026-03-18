@@ -44,25 +44,27 @@ export default function PostViewer({ postData, slug }: PostViewerProps) {
                 <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-amber-900/10 to-transparent" />
             </div>
 
-            {/* NAVIGATION HEADER */}
+            {/* NAVIGATION HEADER (SYNCHRONIZED) */}
             <motion.nav
                 animate={{ opacity: focusOpacity, y: isFocusMode ? -100 : 0 }}
-                className="fixed top-0 left-0 w-full p-6 md:p-8 flex justify-between items-center z-40 bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm"
+                className="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-40"
             >
-                <Link href="/select" className="group flex items-center gap-4 text-xs tracking-[0.3em] text-white/40 hover:text-amber-500 transition-colors uppercase font-mono">
-                    <span className="group-hover:-translate-x-1 transition-transform text-lg">←</span>
-                    Archive_Index
+                <Link 
+                    href="/select" 
+                    className="group px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_30px_rgba(217,119,6,0.1)]"
+                >
+                    <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Archive Index ]</span>
                 </Link>
 
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-8">
                     <button
                         onClick={() => setIsFocusMode(!isFocusMode)}
-                        className="text-[10px] tracking-[0.2em] text-white/30 hover:text-white uppercase transition-colors border border-white/10 px-3 py-1 rounded hover:border-white/30"
+                        className="px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.3em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_30px_rgba(217,119,6,0.1)]"
                     >
                         {isFocusMode ? "Exit Focus" : "Focus Mode"}
                     </button>
-                    <span className="text-[10px] tracking-[0.3em] text-amber-500/50 hidden md:block font-bold">
-                        REF: {slug.toUpperCase().substring(0, 10)}...
+                    <span className="text-[10px] tracking-[0.3em] font-cinzel text-amber-500/40 hidden md:block uppercase">
+                        Protocol: {slug.toUpperCase().substring(0, 10)}
                     </span>
                 </div>
             </motion.nav>
@@ -114,17 +116,20 @@ export default function PostViewer({ postData, slug }: PostViewerProps) {
                     dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
                 />
 
-                {/* FOOTER SIGNATURE */}
-                <div className="mt-40 pt-12 border-t border-white/5 flex flex-col items-center gap-8 opacity-50 hover:opacity-100 transition-opacity duration-1000">
-                    <div className="text-4xl text-amber-900/40">☤</div>
-                    <p className="text-white/20 italic text-xs font-serif tracking-widest text-center max-w-md">
+                {/* FOOTER SIGNATURE (SYNCHRONIZED) */}
+                <div className="mt-40 pt-12 border-t border-white/5 flex flex-col items-center gap-8 opacity-60 hover:opacity-100 transition-opacity duration-1000">
+                    <div className="text-4xl text-amber-500/30">☤</div>
+                    <p className="text-white/40 italic text-sm font-serif tracking-widest text-center max-w-lg leading-relaxed">
                         "The pendulum of the mind oscillates between sense and nonsense, not between right and wrong."
-                        <br /><span className="not-italic text-[9px] font-mono mt-2 block uppercase text-white/10">— C.G. Adam Smith</span>
+                        <br /><span className="not-italic text-[10px] font-cinzel mt-4 block uppercase text-amber-500/20 tracking-[0.3em]">— C.G. Adam Smith // Legacy Codex</span>
                     </p>
-
-                    <div className="mt-12 flex gap-4">
-                        <Link href="/select" className="group px-8 py-4 border border-white/10 hover:border-amber-500/50 hover:bg-white/[0.02] transition-all flex flex-col items-center gap-1">
-                            <span className="text-[10px] tracking-[0.4em] uppercase text-white/40 group-hover:text-white transition-colors">Return</span>
+ 
+                    <div className="mt-12">
+                        <Link 
+                            href="/select" 
+                            className="group px-10 py-4 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[12px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_50px_rgba(217,119,6,0.1)]"
+                        >
+                            <span className="group-hover:tracking-[0.7em] transition-all duration-500">[ Return to Index ]</span>
                         </Link>
                     </div>
                 </div>

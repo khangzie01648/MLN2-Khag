@@ -10,16 +10,17 @@ export default function NeuralMapOverlay({ articles, color }: { articles: any[],
     return (
         <>
             {/* FLOATING ACCESS BUTTON */}
-            <div className={`fixed bottom-12 right-12 z-[90] transition-opacity duration-1000 ${isOpen ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100'}`}>
+            {/* FLOATING ACCESS BUTTON (SYNCHRONIZED) */}
+            <div className={`fixed bottom-8 right-8 z-[90] transition-opacity duration-1000 ${isOpen ? 'opacity-0 scale-90 pointer-events-none' : 'opacity-100'}`}>
                 <button
                     onClick={() => setIsOpen(true)}
-                    className="p-6 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-full hover:bg-white/10 transition-all group"
+                    className="px-8 py-3 bg-black/60 backdrop-blur-3xl border border-amber-500/30 rounded-full hover:bg-amber-500 hover:text-black transition-all group shadow-[0_0_30px_rgba(217,119,6,0.1)]"
                 >
-                    <div className="flex items-center gap-6">
-                        <span className="text-[10px] font-mono tracking-[0.5em] text-white/40 uppercase group-hover:text-white transition-colors">Neural_Map</span>
-                        <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
-                            <div className="w-2 h-2 bg-amber-500 rounded-full animate-ping" />
-                        </div>
+                    <div className="flex items-center gap-4">
+                        <span className="text-[11px] font-cinzel tracking-[0.4em] uppercase text-amber-500/80 group-hover:text-black transition-colors font-black">
+                            [ Neural Map ]
+                        </span>
+                        <div className="w-2 h-2 bg-amber-500 rounded-full animate-ping" />
                     </div>
                 </button>
             </div>
@@ -34,11 +35,12 @@ export default function NeuralMapOverlay({ articles, color }: { articles: any[],
                         className="fixed inset-0 z-[110] bg-black/80 flex items-center justify-center p-20"
                     >
                         {/* CLOSE BUTTON */}
+                        {/* CLOSE BUTTON (SYNCHRONIZED) */}
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute top-12 right-12 text-white/30 hover:text-white transition-all font-mono text-[10px] tracking-[1em] uppercase"
+                            className="absolute top-8 right-8 px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_30px_rgba(217,119,6,0.1)] group"
                         >
-                            [ Close_Map ]
+                            <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Close Map ]</span>
                         </button>
 
                         <div className="w-full max-w-7xl h-full flex flex-col gap-12">

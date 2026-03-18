@@ -238,22 +238,29 @@ const DoorCorridor3D = () => {
         <div className="relative w-full h-screen bg-[#020202] text-white">
             <div ref={mountRef} className="absolute inset-0 z-0" />
 
-            {/* UI Overlay */}
-            <div className={`absolute inset-0 z-10 pointer-events-none transition-opacity duration-1000 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-                <div className="absolute top-12 left-12">
-                    <h2 className="text-[10px] tracking-[1em] uppercase opacity-40 mb-2">Internal Monologue Sanctum</h2>
-                    <div className="h-[1px] w-24 bg-white/20" />
-                </div>
+            {/* CONSOLIDATED HUD HEADER (SYNCHRONIZED & DECORATED) */}
+            <div className="fixed top-8 left-8 z-[1000] flex items-center gap-10 pointer-events-none">
+                <button
+                    onClick={() => router.push('/select')}
+                    className="pointer-events-auto px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all shadow-[0_0_30px_rgba(217,119,6,0.1)] group"
+                >
+                    <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Return to Mandala ]</span>
+                </button>
 
-                <div className="absolute bottom-12 left-12 flex flex-col gap-1">
-                    <span className="text-[8px] font-mono opacity-20 uppercase tracking-widest">{status}</span>
-                    <div className="flex gap-1 h-4 items-end">
-                        {[1, 0.4, 0.7, 1, 0.3, 0.8].map((h, i) => (
-                            <div key={i} className="w-[1px] bg-white/30 animate-pulse" style={{ height: `${h * 100}%`, animationDelay: `${i * 0.1}s` }} />
-                        ))}
+                {/* VERTICAL DIVIDER */}
+                <div className="w-[1px] h-8 bg-amber-500/20" />
+
+                {/* DECORATED TITLE */}
+                <div className="flex flex-col">
+                    <h2 className="text-[11px] font-cinzel tracking-[0.8em] uppercase text-amber-400/80 leading-none">Internal Monologue</h2>
+                    <div className="flex items-center gap-4 mt-1">
+                        <span className="text-[8px] font-mono tracking-[0.3em] text-white/20 uppercase whitespace-nowrap">SANCTUM_PROTOCOL_0x9FAC</span>
+                        <div className="w-12 h-[0.5px] bg-amber-500/10" />
                     </div>
                 </div>
-
+            </div>
+            {/* UI Overlay */}
+            <div className={`absolute inset-0 z-10 pointer-events-none transition-opacity duration-1000 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
                 {/* PEAK CREATIVITY: THE NEURAL MANIFESTO UI */}
                 <AnimatePresence>
                     {hoveredPillar && (
@@ -339,9 +346,16 @@ const DoorCorridor3D = () => {
                         video::-webkit-media-controls { display: none !important; }
                         body { overflow: hidden !important; margin: 0 !important; }
                     ` }} />
+
+                    <button
+                        onClick={() => router.push(targetUrl)}
+                        className="fixed top-8 right-8 z-[1000000] px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_30px_rgba(217,119,6,0.1)] group"
+                    >
+                        <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Skip Sequence ]</span>
+                    </button>
+
                     <video
                         autoPlay
-                        muted
                         playsInline
                         className="ultimate-force-video"
                         onEnded={() => router.push(targetUrl)}

@@ -6,6 +6,7 @@ import { Float, Environment, useGLTF, Html, PerspectiveCamera, OrbitControls, St
 import * as THREE from 'three';
 import { EffectComposer, Bloom, ChromaticAberration, Vignette } from '@react-three/postprocessing';
 import { motion, AnimatePresence } from 'framer-motion';
+import LegacyGrimoireReader from './LegacyGrimoireReader';
 
 interface PageData {
     id: number;
@@ -58,11 +59,11 @@ function NeuronIcon({ position, page, isSelected, onSelect, index, modelPath }: 
     useFrame((state) => {
         if (containerRef.current) {
             const time = state.clock.elapsedTime * 0.2;
-            
+
             // Subtle, unified floating for the entire icon group
             const hoverY = Math.sin(time + index * 0.5) * 0.4;
             const hoverX = Math.cos(time * 0.3 + index) * 0.2;
-            
+
             // Set base grid position + dynamic wave
             containerRef.current.position.set(
                 position[0] + hoverX,
@@ -144,7 +145,7 @@ function NeuronIcon({ position, page, isSelected, onSelect, index, modelPath }: 
     );
 }
 
-export default function ArchiveNeuronViewer({ pages, modelPath = '/01.glb' }: { pages: PageData[], modelPath?: string }) {
+export default function ArchiveNeuronViewer({ pages, modelPath = '/01.glb', pillarId = 'biography' }: { pages: PageData[], modelPath?: string, pillarId?: string }) {
     const [selectedPage, setSelectedPage] = useState<PageData | null>(null);
 
     const neurons = useMemo(() => {
@@ -182,7 +183,10 @@ export default function ArchiveNeuronViewer({ pages, modelPath = '/01.glb' }: { 
     }, [pages]);
 
     return (
-        <div className="fixed inset-0 w-full h-screen bg-black overflow-hidden">
+        <div className="fixed inset-0 w-full h-screen bg-black overflow-hidden font-cinzel">
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&display=swap');
+            `}</style>
             <Canvas dpr={[1, 2]}>
                 <PerspectiveCamera makeDefault position={[0, 0, 110]} fov={50} />
                 <ambientLight intensity={0.4} />
@@ -227,47 +231,21 @@ export default function ArchiveNeuronViewer({ pages, modelPath = '/01.glb' }: { 
 
             <AnimatePresence>
                 {selectedPage && (
-                    <motion.div
-                        initial={{ opacity: 0, x: 50, filter: 'blur(10px)' }}
-                        animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-                        exit={{ opacity: 0, x: 50, filter: 'blur(10px)' }}
-                        className="absolute right-0 top-0 bottom-0 w-full md:w-[500px] bg-black/90 backdrop-blur-3xl border-l border-amber-500/10 z-50 p-12 flex flex-col pt-32"
-                    >
-                        <button
-                            onClick={() => setSelectedPage(null)}
-                            className="absolute top-12 right-12 text-amber-500 hover:text-white transition-all font-cinzel text-[10px] tracking-[0.5em] uppercase hover:scale-110"
-                        >
-                            [ Return to Grid ]
-                        </button>
-
-                        <div className="flex-1 overflow-y-auto pr-8 custom-scrollbar">
-                            <div className="flex items-center gap-4 mb-8">
-                                <span className="text-4xl font-cinzel text-amber-500/20">{selectedPage.id < 10 ? `0${selectedPage.id}` : selectedPage.id}</span>
-                                <div className="h-[1px] flex-1 bg-amber-500/10" />
-                            </div>
-
-                            <h2 className="text-2xl font-cinzel text-white mb-10 leading-relaxed uppercase tracking-widest">
-                                {selectedPage.title}
-                            </h2>
-
-                            <div
-                                className="prose prose-invert prose-amber max-w-none text-[15px] leading-[1.8] text-white/70 font-light"
-                                dangerouslySetInnerHTML={{ __html: selectedPage.content }}
-                            />
-                        </div>
-
-                        <div className="mt-12 pt-8 border-t border-white/5 flex justify-between items-center opacity-30">
-                            <div className="text-[8px] text-white tracking-[0.4em] uppercase font-mono">
-                                Data Retrieval Success // Node_{selectedPage.id}
-                            </div>
-                            <div className="text-[8px] text-white tracking-[0.4em] uppercase font-mono">
-                                2026.ARCV
-                            </div>
-                        </div>
-                    </motion.div>
+                    <LegacyGrimoireReader
+                        page={selectedPage}
+                        onExit={() => setSelectedPage(null)}
+                    />
                 )}
             </AnimatePresence>
 
+
+            {/* BACK BUTTON (SUBTLE & ALIGNED) */}
+            <button
+                onClick={() => window.location.href = `/select/door/${pillarId}`}
+                className="fixed top-8 left-8 z-[1000] px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] tracking-[0.5em] font-cinzel uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_30px_rgba(217,119,6,0.1)] group"
+            >
+                <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ RETURN TO PILLAR ]</span>
+            </button>
 
             {/* Vignette Layer */}
             <div className="fixed inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,1)] z-10" />

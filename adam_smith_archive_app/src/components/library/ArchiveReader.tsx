@@ -20,14 +20,14 @@ export default function ArchiveReader({ content, metadata }: { content: string, 
             {/* Background Video - Portaled to Body */}
             <FixedBackground src="/vid3.mp4" />
 
-            {/* Navigation Bar */}
-            <div className="fixed top-0 left-0 w-full z-50 bg-[#0a0b10]/90 backdrop-blur border-b border-[#d4af37]/20 px-6 py-4 flex items-center justify-between">
-                <Link href="/select/library" className="flex items-center gap-2 text-[#d4af37] hover:text-[#f1c40f] transition-colors font-cinzel font-bold">
-                    <ChevronLeft size={20} />
-                    QUAY LẠI THƯ VIỆN
+            {/* NAVIGATION HEADER (SYNCHRONIZED) */}
+            <div className="fixed top-8 left-8 z-50 pointer-events-none">
+                <Link 
+                    href="/select/library" 
+                    className="pointer-events-auto px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all shadow-[0_0_30px_rgba(217,119,6,0.1)] group"
+                >
+                    <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Back to Library ]</span>
                 </Link>
-                <span className="text-xs text-gray-500 uppercase tracking-widest hidden md:block">{metadata.title}</span>
-                <div className="w-8"></div> {/* Spacer */}
             </div>
 
             <div className="pt-24 pb-20 max-w-7xl mx-auto flex gap-12 px-4 relative">

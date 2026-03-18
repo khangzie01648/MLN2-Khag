@@ -107,12 +107,16 @@ export default function MirrorPage() {
         <main className="min-h-screen bg-black text-white font-inter relative overflow-hidden flex flex-col items-center justify-center">
             <CustomCursor />
 
-            <nav className="fixed top-0 left-0 right-0 p-8 z-50 flex justify-between items-start">
-                <Link href="/select" className="text-[10px] tracking-[0.4em] uppercase text-white/30 hover:text-white transition-colors flex items-center gap-2">
-                    <span>←</span> Return to Lab
+            {/* NAVIGATION HEADER (SYNCHRONIZED) */}
+            <nav className="fixed top-8 left-8 right-8 z-50 flex justify-between items-start pointer-events-none font-cinzel">
+                <Link 
+                    href="/select" 
+                    className="pointer-events-auto px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all shadow-[0_0_30px_rgba(217,119,6,0.1)]"
+                >
+                    <span className="hover:tracking-[0.6em] transition-all duration-500">[ Return to Lab ]</span>
                 </Link>
                 <div className="text-right">
-                    <div className="text-[10px] tracking-[0.5em] uppercase text-white/20 font-bold mb-1">
+                    <div className="text-[10px] tracking-[0.5em] uppercase text-amber-500/20 font-bold mb-1">
                         Shadow Work Protocol
                     </div>
                 </div>
@@ -136,9 +140,11 @@ export default function MirrorPage() {
                         <button
                             onClick={startCamera}
                             disabled={loading}
-                            className="mt-8 px-10 py-4 border border-white/20 hover:bg-white hover:text-black transition-all rounded-sm uppercase tracking-[0.3em] text-xs font-bold"
+                            className="mt-12 px-12 py-5 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[14px] font-cinzel tracking-[0.4em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all shadow-[0_0_50px_rgba(217,119,6,0.1)] group"
                         >
-                            {loading ? "Initializing..." : "Face Your Shadow"}
+                            <span className="group-hover:tracking-[0.6em] transition-all duration-500">
+                                {loading ? "Initializing..." : "Face Your Shadow"}
+                            </span>
                         </button>
                     </motion.div>
                 ) : (

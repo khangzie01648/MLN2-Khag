@@ -290,7 +290,15 @@ const NeuralController = () => {
         <div className="relative w-full h-screen overflow-hidden bg-[#000008] text-white font-sans">
             <div ref={mountRef} className="absolute inset-0" />
 
-            <div className="absolute top-[40px] left-[40px] z-[100] bg-black/50 backdrop-blur-3xl p-10 rounded-[30px] border border-cyan-500/30 shadow-[0_0_60px_rgba(0,242,254,0.15)] group transition-all hover:border-cyan-400">
+            {/* BACK BUTTON */}
+            <button
+                onClick={() => router.push('/')}
+                className="fixed top-8 left-8 z-[1000] px-6 py-3 border border-cyan-500/30 bg-black/40 backdrop-blur-2xl rounded-full text-[10px] tracking-[0.5em] uppercase text-cyan-400 font-black hover:bg-cyan-500/20 hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_40px_rgba(0,242,254,0.1)]"
+            >
+                [ Return to Core ]
+            </button>
+
+            <div className="absolute top-[40px] left-[150px] z-[100] bg-black/50 backdrop-blur-3xl p-10 rounded-[30px] border border-cyan-500/30 shadow-[0_0_60px_rgba(0,242,254,0.15)] group transition-all hover:border-cyan-400">
                 <div className="flex items-center gap-4 mb-2">
                     <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse" />
                     <h1 className="m-0 text-[1.5rem] text-cyan-400 tracking-[8px] font-black uppercase drop-shadow-[0_0_10px_rgba(0,242,254,0.5)]">NEURAL HOLOGRAM</h1>

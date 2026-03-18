@@ -292,13 +292,13 @@ export default function NexusLayout({ pillar }: NexusLayoutProps) {
                     </div>
                 </div>
 
-                {/* THE VOID FOOTER */}
-                <div className="absolute bottom-0 left-0 w-full p-12 flex justify-between items-end pointer-events-auto z-20">
-                    <Link href="/select" className="group flex flex-col gap-8">
-                        <div className="w-24 h-24 border-[1px] border-white/10 rounded-full flex items-center justify-center group-hover:border-amber-500 group-hover:scale-110 transition-all duration-[1s] group-hover:shadow-[0_0_50px_rgba(255,191,0,0.3)] relative bg-black/50 backdrop-blur-sm">
-                            <span className="text-white/40 group-hover:text-white text-3xl relative z-10 transition-all font-light">←</span>
-                        </div>
-                        <span className="text-[12px] font-mono tracking-[0.3em] text-white/20 group-hover:text-amber-500 transition-all uppercase">Return_To_Nexus</span>
+                {/* THE VOID FOOTER (SYNCHRONIZED & CLEAN) */}
+                <div className="absolute bottom-12 left-0 w-full px-12 flex justify-between items-end pointer-events-auto z-20">
+                    <Link 
+                        href="/select" 
+                        className="group px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_30px_rgba(217,119,6,0.1)]"
+                    >
+                        <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Return to Nexus ]</span>
                     </Link>
 
                     <div className="flex flex-col items-end gap-2 opacity-30 hover:opacity-100 transition-opacity duration-[1s]">

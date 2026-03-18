@@ -53,29 +53,20 @@ export default function ArticleLayout({
             {/* OUROBOROS SCROLL PROGRESS */}
             <motion.div className="fixed top-0 left-0 right-0 h-[1.5px] bg-amber-500 z-[200] origin-left shadow-[0_0_15px_rgba(255,191,0,0.5)]" style={{ scaleX }} />
 
-            {/* --- MINIMALIST HUD HEADER --- */}
-            <header className="fixed top-0 left-0 w-full z-[150] backdrop-blur-md border-b-[0.5px] border-white/5 bg-black/20">
-                <div className="max-w-7xl mx-auto px-12 py-8 flex items-center justify-between">
-                    <Link href={`/${pillar.id}`} className="group flex items-center gap-8">
-                        <div className="w-12 h-12 border-[0.5px] border-white/10 rounded-full flex items-center justify-center group-hover:border-amber-500 group-hover:scale-110 transition-all duration-700">
-                            <span className="text-white/40 group-hover:text-amber-500 transition-colors">←</span>
-                        </div>
-                        <div className="flex flex-col">
-                            <span className="text-[9px] font-mono tracking-[0.5em] text-white/20 uppercase">Back_To_Nexus</span>
-                            <span className="text-[14px] font-cinzel text-white/60 tracking-widest">{pillar.nameVi.toUpperCase()}</span>
-                        </div>
-                    </Link>
+            {/* NAVIGATION HEADER (SYNCHRONIZED) */}
+            <div className="fixed top-8 left-8 right-8 z-[150] pointer-events-none flex justify-between items-start">
+                <Link 
+                    href={`/${pillar.id}`} 
+                    className="pointer-events-auto px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all shadow-[0_0_30px_rgba(217,119,6,0.1)] group"
+                >
+                    <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Back to Nexus ]</span>
+                </Link>
 
-                    <div className="flex items-center gap-12">
-                        <div className="flex flex-col items-end">
-                            <span className="text-[9px] font-mono tracking-[0.5em] text-amber-500/60 uppercase">Pillar_Status</span>
-                            <span className="text-[12px] font-mono text-white/40 uppercase tracking-tighter">Authorized_Session</span>
-                        </div>
-                        <div className="w-px h-10 bg-white/10" />
-                        <div className="text-3xl filter grayscale brightness-125 opacity-20">{pillar.icon}</div>
-                    </div>
+                <div className="flex flex-col items-end opacity-40 hover:opacity-100 transition-opacity duration-1000">
+                    <span className="text-[9px] font-mono tracking-[0.5em] text-amber-500/60 uppercase mb-2">Protocol: {pillar.id.toUpperCase()}</span>
+                    <div className="text-3xl filter grayscale brightness-125 opacity-20">{pillar.icon}</div>
                 </div>
-            </header>
+            </div>
 
             {/* --- HERO: THE DIVINE SHARD --- */}
             <section ref={heroRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
@@ -187,9 +178,9 @@ export default function ArticleLayout({
                         </Link>
                     ) : (
                         <Link href={`/${pillar.id}`} className="flex-1 group transition-all duration-700">
-                            <div className="p-16 border-[0.5px] border-amber-500/20 bg-amber-500/[0.02] group-hover:bg-amber-500 group-hover:border-amber-500 transition-all duration-700 flex flex-col gap-8 text-center items-center">
-                                <span className="text-[10px] font-mono tracking-[1.5em] text-white uppercase group-hover:text-black transition-colors">Return_To_Nexus</span>
-                                <span className="text-4xl font-cinzel text-white group-hover:text-black transition-all uppercase leading-tight tracking-widest leading-none">Complete_Sequence</span>
+                            <div className="p-16 border border-amber-500/20 bg-amber-500/[0.02] group-hover:bg-amber-500 group-hover:border-amber-500/50 transition-all duration-700 flex flex-col gap-8 text-center items-center backdrop-blur-xl shadow-[inest_0_0_50px_rgba(217,119,6,0.05)] rounded-sm">
+                                <span className="text-[11px] font-cinzel tracking-[1.5em] text-white/40 uppercase group-hover:text-black transition-colors ml-[1.5em]">Return_To_Nexus</span>
+                                <span className="text-4xl md:text-5xl font-cinzel text-white group-hover:text-black transition-all uppercase leading-tight tracking-[0.1em]">Complete Sequence</span>
                             </div>
                         </Link>
                     )}

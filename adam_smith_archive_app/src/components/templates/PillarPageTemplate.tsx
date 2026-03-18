@@ -251,7 +251,7 @@ export default function PillarPageTemplate({ pillar, articles }: PillarPageProps
         offset: ["start start", "end end"]
     });
 
-    const videoOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    const videoOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.5, 0.3]); // Persist background but dim it for 3D clarity
     const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
     const heroOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
@@ -269,21 +269,30 @@ export default function PillarPageTemplate({ pillar, articles }: PillarPageProps
     }, [pillar.id]);
 
     return (
-        <div 
-            ref={containerRef} 
+        <div
+            ref={containerRef}
             className="relative min-h-[200vh] bg-black text-white overflow-x-hidden"
             suppressHydrationWarning
         >
             {/* STABLE INITIALIZING SCREEN - Fixed Forever hydration logic */}
-            <div 
-                className={`fixed inset-0 z-[999] bg-black flex items-center justify-center transition-opacity duration-1000 ${
-                    mounted ? 'opacity-0 pointer-events-none' : 'opacity-100'
-                }`}
+            <div
+                className={`fixed inset-0 z-[999] bg-black flex items-center justify-center transition-opacity duration-1000 ${mounted ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    }`}
             >
                 <div className="text-white/10 uppercase tracking-[2em] text-xs">
                     Mindscape Initializing
                 </div>
             </div>
+
+            {/* BACK BUTTON (SYNCHRONIZED IMPERIAL STYLE) */}
+            {mounted && (
+                <button
+                    onClick={() => window.location.href = '/select/door'}
+                    className="fixed top-8 left-8 z-[500] px-8 py-3 border border-amber-500/30 bg-black/60 backdrop-blur-3xl rounded-full text-[11px] font-cinzel tracking-[0.5em] uppercase text-amber-500/80 font-black hover:bg-amber-500 hover:text-black hover:scale-110 active:scale-95 transition-all pointer-events-auto shadow-[0_0_30px_rgba(217,119,6,0.1)] group"
+                >
+                    <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Return to Sanctum ]</span>
+                </button>
+            )}
 
             {/* CONTENT LAYER - Only active when client-side logic is ready */}
             {mounted && (
