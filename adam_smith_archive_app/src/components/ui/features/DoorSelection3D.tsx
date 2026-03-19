@@ -343,16 +343,8 @@ const NeuralController = () => {
                 )}
             </div>
 
-            <div className={`absolute bottom-[40px] right-[40px] w-64 h-48 rounded-[35px] border transition-all duration-700 ${cameraAvailable === false ? 'border-white/5 opacity-5' : 'border-cyan-500/20'} overflow-hidden shadow-2xl group`}>
-                <video ref={videoRef} autoPlay playsInline className="w-full h-full object-cover scale-x-[-1] opacity-70 brightness-110 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-950/30 to-transparent pointer-events-none" />
-                <div className="absolute top-4 left-5 text-[8px] font-mono text-cyan-400 font-bold uppercase tracking-[3px] opacity-20">Live_Feed</div>
-                {cameraAvailable === false && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-                        <span className="text-[8px] font-black text-rose-400 tracking-[3px] uppercase">SIGNAL_BUSY</span>
-                    </div>
-                )}
-            </div>
+            {/* HIDDEN CAMERA POOL FOR NEURAL RECOGNITION (GHOST MODE) */}
+            <video ref={videoRef} autoPlay playsInline className="fixed -top-[1000px] left-0 w-[1px] h-[1px] opacity-0 pointer-events-none" />
 
             <div className="absolute bottom-[35px] left-1/2 -translate-x-1/2 opacity-25 text-[9px] tracking-[1.4em] uppercase whitespace-nowrap font-black text-cyan-100 cursor-default hover:opacity-50 transition-opacity">
                 Absolute Maximum Data Edition | Safe Start
