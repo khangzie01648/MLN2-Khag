@@ -76,8 +76,9 @@ const ProjectCredits = () => {
                     <Cpu size={20} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Synthetic Architect</h4>
-                    <p className="text-lg text-white font-medium group-hover:text-blue-300 transition-colors duration-500">Antigravity AI (Agent System)</p>
+                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Synthetic Stack</h4>
+                    <p className="text-sm text-blue-300 font-medium">Antigravity, Claude, Blender, Grok,</p>
+                    <p className="text-sm text-blue-300 font-medium">OpenClaw, Gemini, NotebookLM</p>
                   </div>
                 </div>
 

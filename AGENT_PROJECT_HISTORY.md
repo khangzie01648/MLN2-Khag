@@ -4,7 +4,7 @@
 
 ## 👤 Thông Tin Đội Ngũ (Team Identity)
 - **Lead Researchers**: Ngô Huy Quang Trường (SE151285), Nguyễn Duy Khang (SE180170)
-- **AI Architect**: Antigravity AI
+- **AI & Engineering Stack**: Antigravity, Claude, Blender, Grok, OpenClaw, Gemini, NotebookLM.
 - **Project Goal**: Xây dựng kho lưu trữ kỹ thuật số Adam Smith với trải nghiệm 3D nhập vai.
 
 ## 📌 Các mốc quan trọng đã hoàn thành (Milestones)
