@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 const DoorSelection3D = dynamic(() => import("@/components/ui/features/DoorSelection3D"), {
     ssr: false,
 });
-import ProjectCredits from '@/components/ui/features/ProjectCredits';
 
 export default function SelectionPage() {
     return (
@@ -13,8 +12,6 @@ export default function SelectionPage() {
             <div className="relative z-20 w-full h-screen">
                 <DoorSelection3D />
             </div>
-
-            <ProjectCredits />
         </main>
     );
 }
