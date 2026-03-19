@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from
 import { useRouter } from 'next/navigation';
 import MindscapeScene from '@/components/3d/scenes/MindscapeScene';
 import CustomCursor from '@/components/ui/CustomCursor';
+import ProjectCredits from '@/components/ui/features/ProjectCredits';
 
 // --- PEAK CREATIVITY: NEURAL CONVERGENCE SYSTEM ---
 const ConvergenceLetter = ({ char, index, isHovered }: any) => {
@@ -253,6 +254,8 @@ export default function Home() {
          {/* CINEMATIC FINISHES */}
          <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.06] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
          <div className="absolute inset-0 z-40 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.01)_0%,transparent_90%)]" />
+
+         <ProjectCredits />
 
          <style jsx global>{`
             body { background: #020202; }
