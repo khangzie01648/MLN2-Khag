@@ -70,6 +70,7 @@ export default function LegacyGrimoireReader({ page, onExit }: { page: PageData,
     const bookRef = useRef<any>(null);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -79,7 +80,14 @@ export default function LegacyGrimoireReader({ page, onExit }: { page: PageData,
             mouseY.set(moveY);
         };
         window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        
+        // GIẢM GIẬT: Chỉ kích hoạt hiệu ứng nặng sau khi trang sách đã đo xong layout
+        const timer = setTimeout(() => setIsReady(true), 300);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            clearTimeout(timer);
+        };
     }, []);
 
     const springX = useSpring(mouseX, { stiffness: 45, damping: 20 });
@@ -90,7 +98,7 @@ export default function LegacyGrimoireReader({ page, onExit }: { page: PageData,
         const parts = fullText.split("Phân tích nhân cách:");
         const intro = parts[0] || "";
         const rest = parts[1] || "";
-        const analysis = rest.split("Bối cảnh xã hội:")[0] || "";
+        const analysis = rest.split("Phân tích nhân cách:")[1]?.split("Bối cảnh xã hội:")[0] || "";
         const social = rest.split("Bối cảnh xã hội:")[1] || "";
         return { intro, analysis, social };
     }, [page]);
@@ -100,13 +108,21 @@ export default function LegacyGrimoireReader({ page, onExit }: { page: PageData,
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1000] bg-[#010101] flex items-center justify-center p-12 overflow-hidden"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="fixed inset-0 z-[1000] bg-[#010101] flex items-center justify-center p-12 overflow-hidden will-change-opacity"
         >
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Dancing+Script:wght@400;700&family=IM+Fell+English+SC&family=Playfair+Display:ital,wght@0,400;1,900&display=swap');
 
                 .custom-scrollbar-hidden::-webkit-scrollbar { display: none; }
                 .custom-scrollbar-hidden { -ms-overflow-style: none; scrollbar-width: none; }
+
+                /* TỐI ƯU HÓA PHẦN CỨNG: SỬ DỤNG WILL-CHANGE ĐỂ GIẢM LAG KHI XOAY */
+                .flipbook-breathe {
+                    animation: breathe 8s ease-in-out infinite;
+                    will-change: transform;
+                    transform-style: preserve-3d;
+                }
                 
                 .mythical-cap::first-letter {
                     float: left;
@@ -156,10 +172,6 @@ export default function LegacyGrimoireReader({ page, onExit }: { page: PageData,
                     border: 3px solid #7a0000;
                 }
 
-                .flipbook-breathe {
-                    animation: breathe 8s ease-in-out infinite;
-                }
-
                 @keyframes breathe {
                     0%, 100% { transform: scale(1); }
                     50% { transform: scale(1.002); }
@@ -180,13 +192,13 @@ export default function LegacyGrimoireReader({ page, onExit }: { page: PageData,
              `}</style>
 
             {/* PHÔNG NỀN KHÔNG GIAN HUYỀN BÍ (ATMOSPHERIC DEPTH) */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ${isReady ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(60,30,60,0.3)_0%,transparent_100%)]" />
                 <div className="absolute inset-0 bg-[#000]/10 mix-blend-overlay" />
-                {Array.from({ length: 50 }).map((_, i) => (
+                {Array.from({ length: 30 }).map((_, i) => (
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }}
+                        initial={{ opacity: 0, x: Math.random() * 1000, y: Math.random() * 800 }}
                         animate={{
                             opacity: [0, 1, 0],
                             y: [0, -250],
