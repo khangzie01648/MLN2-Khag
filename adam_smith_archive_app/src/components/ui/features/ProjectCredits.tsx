@@ -46,7 +46,7 @@ const ProjectCredits = () => {
             >
               {/* Header */}
               <div className="bg-gradient-to-r from-neutral-900 to-black p-6 border-b border-[#daa520]/10 flex justify-between items-center">
-                <h3 className="font-cinzel text-xl text-[#daa520] tracking-widest uppercase">System Metadata</h3>
+                <h3 className="font-cinzel text-xl text-[#daa520] tracking-widest uppercase">Thông Tin Hệ Thống</h3>
                 <button 
                   onClick={() => setIsOpen(false)}
                   className="text-white/40 hover:text-white transition-colors"
@@ -64,7 +64,7 @@ const ProjectCredits = () => {
                     <User size={20} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Lead Researchers</h4>
+                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Nhóm Nghiên Cứu Chính</h4>
                     <p className="text-sm text-white font-medium group-hover:text-[#daa520] transition-colors duration-500">Ngô Huy Quang Trường (SE151285)</p>
                     <p className="text-sm text-white font-medium group-hover:text-[#daa520] transition-colors duration-500">Nguyễn Duy Khang (SE180170)</p>
                   </div>
@@ -76,7 +76,7 @@ const ProjectCredits = () => {
                     <Cpu size={20} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Synthetic Stack</h4>
+                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Hệ Sinh Thái AI & Công Cụ</h4>
                     <p className="text-sm text-blue-300 font-medium">Antigravity, Claude, Blender, Grok,</p>
                     <p className="text-sm text-blue-300 font-medium">OpenClaw, Gemini, NotebookLM</p>
                   </div>
@@ -86,17 +86,17 @@ const ProjectCredits = () => {
                 <div className="mt-8 pt-6 border-t border-white/5">
                   <div className="flex gap-3 items-center mb-3">
                     <ShieldCheck size={16} className="text-[#daa520]/60" />
-                    <h4 className="text-[10px] font-mono text-[#daa520]/60 uppercase tracking-[0.2em]">Disclosure Protocol</h4>
+                    <h4 className="text-[10px] font-mono text-[#daa520]/60 uppercase tracking-[0.2em]">Giao Thức Công Bố AI</h4>
                   </div>
                   <p className="text-sm text-white/60 leading-relaxed font-light italic">
-                    "This digital archive is an AI-augmented reconstruction. All content, data mapping, and visual artifacts have been generated through systemic collaboration between human intent and autonomous intelligence."
+                    "Kho lưu trữ kỹ thuật số này là một công trình tái thiết được tăng cường bởi AI. Toàn bộ nội dung, bản đồ dữ liệu và các thành phần trực quan đã được tạo ra thông qua sự cộng tác hệ thống giữa ý tưởng của con người và trí tuệ nhân tạo tự chủ."
                   </p>
                 </div>
               </div>
 
               {/* Footer / Epoch */}
               <div className="px-8 py-4 bg-white/[0.02] flex justify-between items-center text-[10px] font-mono text-white/20">
-                <span>EPOCH_2026_VERSION_3.5.0</span>
+                <span>PHÂN BẢN_3.5.0_NIÊN ĐẠI_2026</span>
                 <span>COORD: 0x9FAC_SM_ARCHIVE</span>
               </div>
             </motion.div>
