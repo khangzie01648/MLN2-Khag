@@ -232,11 +232,36 @@ const DoorCorridor3D = () => {
         init();
     }, [mounted]); // RE-RUN WHEN MOUNTED BECOMES TRUE
 
+    // --- PRELOAD AND TRANSITION OPTIMIZATION ---
+    useEffect(() => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = '/chuyencanhsau_final.mp4';
+        link.as = 'video';
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+        return () => {
+            if (document.head.contains(link)) document.head.removeChild(link);
+        };
+    }, []);
+
     if (!mounted) return null;
 
     return (
-        <div className="relative w-full h-screen bg-[#020202] text-white">
+        <div className="relative w-full h-screen bg-[#020202] text-white overflow-hidden">
             <div ref={mountRef} className="absolute inset-0 z-0" />
+
+            <AnimatePresence>
+                {isTransitioning && (
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 1 }}
+                        transition={{ duration: 0.15 }} // ULTRA FAST FLASH ON CLICK
+                        className="fixed inset-0 z-[99999] bg-white"
+                    />
+                )}
+            </AnimatePresence>
 
             {/* CONSOLIDATED HUD HEADER (SYNCHRONIZED & DECORATED) */}
             <div className="fixed top-8 left-8 z-[1000] flex items-center gap-10 pointer-events-none">
@@ -326,7 +351,7 @@ const DoorCorridor3D = () => {
             {/* Transition Video Portal */}
             {isTransitioning && (
                 <div
-                    className="fixed inset-0 z-[99999] overflow-hidden bg-black flex items-center justify-center"
+                    className="fixed inset-0 z-[99999] overflow-hidden bg-black flex items-center justify-center pointer-events-auto"
                     style={{ isolation: 'isolate' }}
                 >
                     <style dangerouslySetInnerHTML={{
@@ -354,9 +379,14 @@ const DoorCorridor3D = () => {
                         <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ Skip Sequence ]</span>
                     </button>
 
+                    <div className="absolute inset-0 bg-black flex items-center justify-center">
+                        <span className="text-amber-500/40 font-mono text-[9px] tracking-[1em] animate-pulse">CONNECTING TO ARCHIVE...</span>
+                    </div>
+
                     <video
                         autoPlay
                         playsInline
+                        preload="auto"
                         className="ultimate-force-video"
                         onEnded={() => router.push(targetUrl)}
                     >
