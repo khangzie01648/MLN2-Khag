@@ -2,6 +2,11 @@
 
 Đây là bản tổng kết toàn bộ tiến độ dự án để Agent luôn nắm bắt được lịch sử làm việc.
 
+## 👤 Thông Tin Đội Ngũ (Team Identity)
+- **Lead Researchers**: Ngô Huy Quang Trường (SE151285), Nguyễn Duy Khang (SE180170)
+- **AI Architect**: Antigravity AI
+- **Project Goal**: Xây dựng kho lưu trữ kỹ thuật số Adam Smith với trải nghiệm 3D nhập vai.
+
 ## 📌 Các mốc quan trọng đã hoàn thành (Milestones)
 
 1.  **Khởi tạo Master Plan:** Đã xây dựng file `nietzsche_master_plan.md` cực kỳ chi tiết với 45 Video POV và lộ trình cuộc đời Adam Smith.

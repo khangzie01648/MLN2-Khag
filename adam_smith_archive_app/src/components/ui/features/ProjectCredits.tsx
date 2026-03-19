@@ -64,8 +64,9 @@ const ProjectCredits = () => {
                     <User size={20} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Lead Researcher</h4>
-                    <p className="text-lg text-white font-medium group-hover:text-[#daa520] transition-colors duration-500">The Lead User / [Tên Thành Viên]</p>
+                    <h4 className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1">Lead Researchers</h4>
+                    <p className="text-sm text-white font-medium group-hover:text-[#daa520] transition-colors duration-500">Ngô Huy Quang Trường (SE151285)</p>
+                    <p className="text-sm text-white font-medium group-hover:text-[#daa520] transition-colors duration-500">Nguyễn Duy Khang (SE180170)</p>
                   </div>
                 </div>
 

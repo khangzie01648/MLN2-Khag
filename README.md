@@ -127,7 +127,7 @@ published: true
 
 ## 🛡️ Giấy Phép & Lời Cảm Ơn
 - **Giấy phép**: MIT
-- **Thiết kế & Kỹ thuật**: Antigravity AI & The Lead User.
+- **Thiết kế & Kỹ thuật**: Ngô Huy Quang Trường (SE151285), Nguyễn Duy Khang (SE180170) & Antigravity AI.
 - **Cảm Hứng Tâm Linh**: Các tác phẩm sưu tầm của Carl Gustav Adam Smith.
 
 > *“Cho đến khi bạn biến cái vô thức thành cái có ý thức, nó sẽ điều khiển cuộc sống của bạn và bạn sẽ gọi nó là định mệnh.”*
