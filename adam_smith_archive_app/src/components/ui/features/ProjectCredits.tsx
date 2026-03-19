@@ -94,11 +94,6 @@ const ProjectCredits = () => {
                 </div>
               </div>
 
-              {/* Footer / Epoch */}
-              <div className="px-8 py-4 bg-white/[0.02] flex justify-between items-center text-[10px] font-mono text-white/20">
-                <span>PHÂN BẢN_3.5.0_NIÊN ĐẠI_2026</span>
-                <span>COORD: 0x9FAC_SM_ARCHIVE</span>
-              </div>
             </motion.div>
           </div>
         )}
