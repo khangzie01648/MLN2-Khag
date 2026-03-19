@@ -1,0 +1,110 @@
+"use client";
+
+import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import GameMenuScene from "@/components/3d/GameMenuScene"; // Assuming this is the 3D spiral
+import QuaternityMenu from "@/components/ui/QuaternityMenu";
+import LabyrinthGrid from "@/components/ui/LabyrinthGrid";
+
+export default function SelectionPage() {
+    return (
+        <main className="min-h-screen bg-[#050505] text-white overflow-x-hidden font-inter relative">
+
+            {/* --- PHASE 1: THE COSMIC SPIRAL (BACKGROUND) --- */}
+            {/* RESTORED: Fully interactive 3D Menu */}
+            {/* --- PHASE 1: THE COSMIC SPIRAL (BACKGROUND) --- */}
+            {/* RESTORED: Fully interactive 3D Menu */}
+            <div className="fixed inset-0 z-0">
+                <GameMenuScene />
+            </div>
+
+            {/* --- GRADIENT OVERLAY FOR READABILITY --- */}
+            <div className="fixed inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black pointer-events-none" />
+
+
+            {/* --- PHASE 2: THE QUATERNITY (HIDDEN FOR 3D MODE) --- */}
+            <div className="relative z-20 pt-32 pb-20 pointer-events-none">
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="text-center mb-12"
+                >
+                    <h1 className="text-4xl md:text-6xl font-cinzel font-bold text-white tracking-[0.1em] drop-shadow-lg mb-4">
+                        THE MANDALA
+                    </h1>
+                    <p className="text-[10px] md:text-xs tracking-[0.5em] text-white/40 uppercase">
+                        Select your path into the Unconscious
+                    </p>
+                </motion.div>
+
+                {/* <QuaternityMenu /> */}
+            </div>
+
+
+            {/* --- PHASE 3: THE LABYRINTH (DEEP DIVE GRID) --- */}
+            <div className="relative z-20 bg-black/80 backdrop-blur-xl border-t border-white/10 pt-20 pb-40">
+                <LabyrinthGrid />
+            </div>
+
+
+            {/* --- PHASE 4: THE ALCHEMICAL LAB (TOOLS FOOTER) --- */}
+            <footer className="relative z-30 bg-[#0a0a0a] border-t border-white/5 py-24 px-6">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+
+                    {/* TOOLS */}
+                    <div className="flex flex-col gap-8 w-full md:w-1/2">
+                        <h4 className="text-lg font-cinzel text-amber-500/80 tracking-[0.2em] mb-4 uppercase flex items-center gap-4">
+                            <span className="w-8 h-[1px] bg-amber-500/50"></span>
+                            The Alchemical Lab
+                        </h4>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <Link href="/mirror" className="group relative p-6 border border-white/10 hover:border-white/30 bg-white/5 hover:bg-white/10 transition-all">
+                                <span className="text-4xl mb-4 block group-hover:scale-110 transition-transform">🪞</span>
+                                <h5 className="font-cinzel font-bold text-white mb-2">The Shadow Mirror</h5>
+                                <p className="text-xs text-stone-400 leading-relaxed group-hover:text-white transition-colors">
+                                    Face your own reflection. See the Persona and the Shadow.
+                                </p>
+                            </Link>
+
+                            <Link href="/oracle" className="group relative p-6 border border-white/10 hover:border-purple-500/30 bg-white/5 hover:bg-purple-900/10 transition-all">
+                                <span className="text-4xl mb-4 block group-hover:scale-110 transition-transform">🎲</span>
+                                <h5 className="font-cinzel font-bold text-white mb-2 group-hover:text-purple-300">Synchronicity Oracle</h5>
+                                <p className="text-xs text-stone-400 leading-relaxed group-hover:text-purple-200 transition-colors">
+                                    Consult the collective unconscious. Roll the dice of fate.
+                                </p>
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* NEWSLETTER */}
+                    <div className="w-full md:w-1/3 flex flex-col gap-6">
+                        <h4 className="text-lg font-cinzel text-stone-500 tracking-[0.2em] mb-0 uppercase">The Raven's Message</h4>
+                        <p className="text-sm text-stone-600 italic">
+                            "The bird of Hermetic wisdom brings news from the depths."
+                        </p>
+                        <form className="flex flex-col gap-4 opacity-50 hover:opacity-100 transition-opacity">
+                            <input
+                                type="email"
+                                placeholder="Enter your email..."
+                                className="bg-transparent border-b border-stone-700 py-2 text-stone-300 focus:outline-none focus:border-amber-500 transition-colors font-mono text-sm"
+                            />
+                            <button className="self-start text-[10px] tracking-[0.3em] uppercase text-stone-500 hover:text-amber-500 transition-colors">
+                                [ Subscribe ]
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div className="text-center mt-32 opacity-20 text-[9px] tracking-[1em] uppercase hover:opacity-50 transition-opacity">
+                    © 2026 Adam Smith Archive Protocol
+                </div>
+            </footer>
+
+        </main>
+    );
+}
