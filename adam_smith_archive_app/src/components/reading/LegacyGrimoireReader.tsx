@@ -427,12 +427,6 @@ export default function LegacyGrimoireReader({ page, onExit }: { page: PageData,
                     <span className="group-hover:tracking-[0.6em] transition-all duration-500">[ CLOSE ARCHIVE ]</span>
                 </button>
 
-                {/* PAGE COUNTER CRYSTAL */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 px-8 py-2 bg-black/60 border border-amber-500/20 backdrop-blur-xl rounded-full">
-                    <span className="font-cinzel text-amber-500/50 text-[9px] tracking-[0.3rem] uppercase italic">
-                        Vault Segment 0{page.id} // Eternal Record
-                    </span>
-                </div>
             </div>
         </motion.div>
     );

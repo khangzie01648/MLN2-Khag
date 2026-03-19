@@ -187,46 +187,53 @@ export default function ArchiveNeuronViewer({ pages, modelPath = '/01.glb', pill
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;700;900&display=swap');
             `}</style>
-            <Canvas dpr={[1, 2]}>
-                <PerspectiveCamera makeDefault position={[0, 0, 110]} fov={50} />
-                <ambientLight intensity={0.4} />
-                <directionalLight position={[10, 20, 10]} intensity={3.0} color="#ffffff" />
-                <pointLight position={[-30, -30, -30]} intensity={1.5} color="#3b82f6" />
-                <CursorLight />
+            <motion.div 
+                initial={{ opacity: 1 }}
+                animate={{ opacity: selectedPage ? 0 : 1 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 z-0"
+            >
+                <Canvas dpr={[1, 2]} frameloop={selectedPage ? 'never' : 'always'}>
+                    <PerspectiveCamera makeDefault position={[0, 0, 110]} fov={50} />
+                    <ambientLight intensity={0.4} />
+                    <directionalLight position={[10, 20, 10]} intensity={3.0} color="#ffffff" />
+                    <pointLight position={[-30, -30, -30]} intensity={1.5} color="#3b82f6" />
+                    <CursorLight />
 
-                <Stars radius={200} depth={50} count={1000} factor={4} saturation={0} fade speed={0.2} />
+                    <Stars radius={200} depth={50} count={1000} factor={4} saturation={0} fade speed={0.2} />
 
-                <React.Suspense fallback={null}>
-                    <group>
-                        {neurons.map((n, idx) => (
-                            <NeuronIcon
-                                key={idx}
-                                index={idx}
-                                position={n.position}
-                                page={n.page}
-                                isSelected={selectedPage?.id === n.page.id}
-                                onSelect={setSelectedPage}
-                                modelPath={modelPath}
-                            />
-                        ))}
-                    </group>
-                </React.Suspense>
+                    <React.Suspense fallback={null}>
+                        <group>
+                            {neurons.map((n, idx) => (
+                                <NeuronIcon
+                                    key={idx}
+                                    index={idx}
+                                    position={n.position}
+                                    page={n.page}
+                                    isSelected={selectedPage?.id === n.page.id}
+                                    onSelect={setSelectedPage}
+                                    modelPath={modelPath}
+                                />
+                            ))}
+                        </group>
+                    </React.Suspense>
 
-                <OrbitControls
-                    enablePan={true}
-                    enableZoom={true}
-                    minDistance={30}
-                    maxDistance={120}
-                    autoRotate={true}
-                    autoRotateSpeed={0.05}
-                    makeDefault
-                />
+                    <OrbitControls
+                        enablePan={true}
+                        enableZoom={true}
+                        minDistance={30}
+                        maxDistance={120}
+                        autoRotate={true}
+                        autoRotateSpeed={0.05}
+                        makeDefault
+                    />
 
-                <EffectComposer multisampling={4}>
-                    <Bloom intensity={1.5} luminanceThreshold={0.1} radius={0.4} />
-                    <Vignette eskil={false} offset={0.1} darkness={1.1} />
-                </EffectComposer>
-            </Canvas>
+                    <EffectComposer multisampling={4}>
+                        <Bloom intensity={1.5} luminanceThreshold={0.1} radius={0.4} />
+                        <Vignette eskil={false} offset={0.1} darkness={1.1} />
+                    </EffectComposer>
+                </Canvas>
+            </motion.div>
 
 
             <AnimatePresence>
