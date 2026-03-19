@@ -29,14 +29,15 @@ function CursorLight() {
     return <pointLight ref={lightRef} intensity={2} color="#fbbf24" distance={50} />;
 }
 
-function NeuronIcon({ position, page, isSelected, onSelect, index, modelPath }: {
+// MEMOIZED NEURON ICON: ĐÓNG BĂNG 50 ICON ĐỂ KHÔNG PHẢI RENDER LẠI KHI MỞ SÁCH
+const NeuronIcon = React.memo(({ position, page, isSelected, onSelect, index, modelPath }: {
     position: [number, number, number],
     page: PageData,
     isSelected: boolean,
     onSelect: (page: PageData) => void,
     index: number,
     modelPath: string
-}) {
+}) => {
     const { scene } = useGLTF(modelPath);
     const model = useMemo(() => {
         const cloned = scene.clone();
@@ -134,7 +135,7 @@ function NeuronIcon({ position, page, isSelected, onSelect, index, modelPath }: 
                             exit={{ opacity: 0, y: 10 }}
                             className="pointer-events-none select-none"
                         >
-                            <div className="px-3 py-1.5 rounded-lg border bg-black/90 text-amber-500 border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.3)] text-[10px] font-cinzel whitespace-nowrap backdrop-blur-md">
+                            <div className="px-3 py-1.5 rounded-lg border bg-black/90 text-amber-500 border-amber-500/50 shadow-[0_0_200px_rgba(245,158,11,0.3)] text-[10px] font-cinzel whitespace-nowrap backdrop-blur-md">
                                 {page.title}
                             </div>
                         </motion.div>
@@ -143,7 +144,7 @@ function NeuronIcon({ position, page, isSelected, onSelect, index, modelPath }: 
             </AnimatePresence>
         </group>
     );
-}
+});
 
 export default function ArchiveNeuronViewer({ pages, modelPath = '/01.glb', pillarId = 'biography' }: { pages: PageData[], modelPath?: string, pillarId?: string }) {
     const [selectedPage, setSelectedPage] = useState<PageData | null>(null);
