@@ -208,19 +208,9 @@ export default function Home() {
                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-[#daa520]/60" />
                            <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#daa520]/60" />
 
-                           {/* Data Stream */}
-                           <div className="absolute -top-12 left-1/2 -translate-x-1/2 overflow-hidden w-64 h-4 flex justify-center">
-                              <motion.span
-                                 animate={{ x: [-100, 100] }}
-                                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                                 className="text-[6px] tracking-[1em] font-mono text-[#daa520] whitespace-nowrap"
-                              >
-                                 DECRYPTING_NEURAL_PATHWAY_STABLE_0x9FAC
-                              </motion.span>
-                           </div>
-                        </motion.div>
-                     )}
-                  </AnimatePresence>
+                         </motion.div>
+                      )}
+                   </AnimatePresence>
                </motion.div>
             </div>
          </div>
