@@ -82,8 +82,16 @@ const ProjectCredits = () => {
                   </div>
                 </div>
 
-                {/* Disclosure */}
+                {/* Overview Section */}
                 <div className="mt-8 pt-6 border-t border-white/5">
+                  <h4 className="text-[10px] font-mono text-[#daa520]/60 uppercase tracking-[0.2em] mb-3">Tổng Quan Dự Án Mindscape</h4>
+                  <p className="text-sm text-white/80 leading-relaxed font-light">
+                    Dự án Mindscape là một hành trình kỹ thuật số đi sâu vào di sản của Adam Smith thông qua công nghệ hiện đại. Chúng tôi kết hợp đồ họa 3D tương tác và AI để tạo ra một "Bản đồ Tâm thức" sống động, giúp bạn khám phá các trụ cột tư tưởng từ Kinh tế đến Triết học theo một cách hoàn toàn mới.
+                  </p>
+                </div>
+
+                {/* Disclosure */}
+                <div className="mt-4 pt-4 border-t border-white/5">
                   <div className="flex gap-3 items-center mb-3">
                     <ShieldCheck size={16} className="text-[#daa520]/60" />
                     <h4 className="text-[10px] font-mono text-[#daa520]/60 uppercase tracking-[0.2em]">Giao Thức Công Bố AI</h4>
