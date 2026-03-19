@@ -10,10 +10,10 @@ import { ArticleConfig } from './types';
 // Define the content directories
 const contentDirectory = path.join(process.cwd(), 'content');
 // Assuming ADAM SMITH_ARCHIVE_FINAL is a sibling of jung_archive_app
-const archivesDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives');
-const archivesVnDirectory = path.resolve(process.cwd(), '../Adam_Smith_Archives_VN');
-// Root-level Neurons folders (the actual folders containing .md content)
-const rootNeuronsDirectory = path.resolve(process.cwd(), '..');
+const archivesDirectory = path.resolve(process.cwd(), '../Project_Archives/Archives_VN/Adam_Smith_Archives_VN'); // Fallback if needed
+const archivesVnDirectory = path.resolve(process.cwd(), '../Project_Archives/Archives_VN/Adam_Smith_Archives_VN');
+// Root-level Neurons folders (now in Knowledge_Neurons)
+const rootNeuronsDirectory = path.resolve(process.cwd(), '../Knowledge_Neurons');
 
 // Helper to map filename or directory to Pillar ID
 function classifyPillar(filename: string, sourceDir: string): string {
