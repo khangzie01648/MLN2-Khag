@@ -14,13 +14,7 @@ export default function SelectionPage() {
                 <DoorSelection3D />
             </div>
 
-            {/* --- MINIMALIST FOOTER --- */}
-            <div className="fixed bottom-6 left-6 z-30 pointer-events-none opacity-40">
-                <span className="text-[10px] font-mono tracking-[0.5em] uppercase text-[#d4af37]">Protocol: Absolute_Data_V4</span>
-            </div>
-
             <ProjectCredits />
-
         </main>
     );
 }
