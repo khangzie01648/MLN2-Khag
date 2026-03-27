@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import MindscapeScene from '@/components/3d/scenes/MindscapeScene';
 import CustomCursor from '@/components/ui/CustomCursor';
 import ProjectCredits from '@/components/ui/features/ProjectCredits';
+import ManualOverlay from '@/components/ui/ManualOverlay';
 
 // --- PEAK CREATIVITY: NEURAL CONVERGENCE SYSTEM ---
 const ConvergenceLetter = ({ char, index, isHovered }: any) => {
@@ -47,6 +48,7 @@ export default function Home() {
    const router = useRouter();
    const [isTransitioning, setIsTransitioning] = useState(false);
    const [showVideo, setShowVideo] = useState(false);
+   const [showPortrait, setShowPortrait] = useState(false);
 
    // --- FIXED HYPER-LOGIC: MAGNETIC TARGETING SYSTEM ---
    const targetX = useMotionValue(0);
@@ -73,7 +75,13 @@ export default function Home() {
    };
 
    const handleVideoEnd = () => {
-      router.push('/select');
+      // Hide video and show portrait
+      setShowPortrait(true);
+
+      // Final navigation after 3 seconds of showing the portrait
+      setTimeout(() => {
+         router.push('/select');
+      }, 3000);
    };
 
    const handleMouseMove = (e: React.MouseEvent) => {
@@ -109,6 +117,7 @@ export default function Home() {
          </video>
 
          <CustomCursor />
+         <ManualOverlay />
 
          {/* 2. OPTIMIZED 3D ABYSS BACKGROUND */}
          {!isTransitioning && (
@@ -211,14 +220,15 @@ export default function Home() {
                          </motion.div>
                       )}
                    </AnimatePresence>
-               </motion.div>
-            </div>
-         </div>
+                </motion.div>
+             </div>
+          </div>
 
-         {/* TRANSITION OVERLAY VIDEO */}
+         {/* TRANSITION OVERLAY VIDEO & PORTRAIT */}
          <AnimatePresence>
-            {showVideo && (
+            {showVideo && !showPortrait && (
                <motion.div
+                  key="video-transition"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -236,7 +246,37 @@ export default function Home() {
                   >
                      <source src="/transition.mp4" type="video/mp4" />
                   </video>
-                  
+               </motion.div>
+            )}
+            {showPortrait && (
+               <motion.div
+                  key="portrait-transition"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, transition: { duration: 1 } }}
+                  transition={{ duration: 1.5, ease: "easeOut" }}
+                  className="fixed inset-0 z-[150] bg-black flex flex-col items-center justify-center p-20"
+               >
+                  <div className="relative w-full max-w-4xl h-[80vh] flex flex-col items-center justify-center">
+                     <img 
+                        src="/adam-smith-portrait-new.jpg" 
+                        alt="Adam Smith Portrait" 
+                        className="w-full h-full object-contain filter drop-shadow-[0_0_100px_rgba(218,165,32,0.3)] brightness-[0.85] contrast-[1.1]"
+                     />
+                     <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 }}
+                        className="absolute bottom-[-2rem] flex flex-col items-center gap-2"
+                     >
+                        <h4 className="text-4xl font-cinzel text-white tracking-[0.5em] uppercase font-black">Adam Smith</h4>
+                        <span className="text-[10px] tracking-[1em] text-[#daa520] uppercase opacity-60">The Architect of the Invisible Hand</span>
+                     </motion.div>
+                  </div>
+
+                  {/* Cinematic Scanline Overlay */}
+                  <div className="absolute inset-0 pointer-events-none opacity-[0.25] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,black_100%)]" />
                </motion.div>
             )}
          </AnimatePresence>
